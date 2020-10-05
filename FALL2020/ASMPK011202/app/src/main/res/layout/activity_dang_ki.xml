@@ -28,7 +28,7 @@
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:background="@drawable/edt"
-            android:fontFamily="@font/cour"
+            android:fontFamily="@font/consola"
             android:hint="@string/Tendangnhap"
             android:paddingLeft="20dp"
             android:textColorHint="#0055FF" />
@@ -68,7 +68,7 @@
             android:hint="@string/matkhau"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
-            android:textColorHint="#0055FF" />
+            android:textColorHint="#0ADDB3" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
