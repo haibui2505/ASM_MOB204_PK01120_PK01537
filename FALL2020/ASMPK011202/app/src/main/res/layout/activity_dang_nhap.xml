@@ -79,12 +79,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="10dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:textColor="#FF005EFF"
-            android:fontFamily="@font/cour"
-            android:text="@string/ch_a_ng_k"></TextView>
 
         <TextView
             android:id="@+id/textview_register"
