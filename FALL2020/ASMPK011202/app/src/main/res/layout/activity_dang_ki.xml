@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back3"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".DangKi">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_username"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edt"
+            android:fontFamily="@font/cour"
+            android:hint="@string/Tendangnhap"
+            android:paddingLeft="20dp"
+            android:textColorHint="#0055FF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_name"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edt"
+            android:fontFamily="@font/cour"
+            android:hint="Họ và tên"
+            android:paddingLeft="20dp"
+            android:textColorHint="#0055FF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_password"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edt"
+            android:fontFamily="@font/cour"
+            android:hint="@string/matkhau"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textColorHint="#0055FF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_cnf_repassword"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:background="@drawable/edt"
+            android:fontFamily="@font/cour"
+            android:hint="@string/rematkhau"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:textColorHint="#0055FF" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/courbd"
+        android:text="@string/dangki"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"></Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:fontFamily="@font/cour"
+            android:text="@string/dangkied"
+            android:textColor="#FF2743DD"></TextView>
+
+        <TextView
+            android:id="@+id/textview_register"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:fontFamily="@font/cour"
+            android:paddingLeft="10dp"
+            android:text="@string/dangnhap"
+            android:textColor="#2743DD"
+            android:textSize="18sp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+</LinearLayout>

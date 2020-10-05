@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/back2"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_marginTop="100dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/logo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
+        app:hintEnabled="false"
+        app:hintAnimationEnabled="true"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_username"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/cour"
+            android:textColorHint="#0055FF"
+            android:paddingLeft="20dp"
+            android:background="@drawable/edt"
+            android:hint="@string/Tendangnhap" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_marginTop="35dp"
+        app:hintEnabled="false"
+        app:hintAnimationEnabled="true"
+        app:passwordToggleEnabled="true"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittext_password1"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:inputType="textPassword"
+            android:textColorHint="#0055FF"
+            android:fontFamily="@font/cour"
+            android:background="@drawable/edt"
+            android:hint="@string/matkhau" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="300dp"
+        android:fontFamily="@font/cour"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/checkbox" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/courbd"
+        android:background="@drawable/button"
+        android:textSize="18sp"
+        android:text="@string/dangnhap"
+        android:textColor="#FFFFFF"></Button>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:textColor="#FF005EFF"
+            android:fontFamily="@font/cour"
+            android:text="@string/ch_a_ng_k"></TextView>
+
+        <TextView
+            android:id="@+id/textview_register"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/cour"
+            android:textSize="18sp"
+            android:text="@string/dangkia"
+            android:textColor="#005EFF"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+
+</LinearLayout>

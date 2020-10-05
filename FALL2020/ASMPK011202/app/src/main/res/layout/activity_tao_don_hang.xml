@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".TaoDonHang">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_navigate_before_24"></ImageView>
+
+            <TextView
+                android:id="@+id/txtabc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toStartOf="@+id/imgabc"
+                android:text="Tạo đơn hàng trong nước"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="18sp"></TextView>
+
+            <ImageView
+                android:id="@+id/imgabc"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_outline_file_copy_24"></ImageView>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/rere"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rerrrr"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="#F6F6F6"
+        android:elevation="5dp"
+        android:padding="3dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rll_nguoiGui"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/person1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:src="@drawable/ic_outline_person_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/person1"
+                            android:fontFamily="@font/consola"
+                            android:text="Người gửi"
+                            android:textColor="#00513A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_ten_taodon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView5"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="0dp"
+                            android:text="name"
+                            android:textSize="14sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/txt_diachi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_ten_taodon"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="dia chi" />
+
+                        <TextView
+                            android:id="@+id/txt_sdt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/textView5"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toEndOf="@+id/txt_ten_taodon"
+                            android:text="sdt" />
+
+                        <TextView
+                            android:id="@+id/txt_ngay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/textView5"
+                            android:fontFamily="@font/consola"
+                            android:text="dd/MM/yyyy"
+                            android:textSize="14sp" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cv1"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="5dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/img2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:src="@drawable/ic_outline_person_24"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/img2"
+                            android:fontFamily="@font/consola"
+                            android:text="Người nhận"
+                            android:textColor="#00513A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img2"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="21dp"
+                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+
+                        <EditText
+                            android:id="@+id/edt_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img2"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Họ và tên"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/imageView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageView9"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="30dp"
+                            app:srcCompat="@drawable/ic_baseline_local_phone_24" />
+
+                        <EditText
+                            android:id="@+id/edt_phone"
+                            android:layout_width="371dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_name"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Số điện thoại"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/imageView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imageView10"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="32dp"
+                            app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
+
+                        <EditText
+                            android:id="@+id/edt_addr"
+                            android:layout_width="371dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_phone"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Địa chỉ người nhận"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/nguoitrartien"
+                            android:layout_width="371dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_addr"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/consola"
+                            android:text="Người trả tiền cước gửi hàng"
+                            android:textColor="#000000"
+                            android:textSize="14sp">
+
+                        </TextView>
+
+                        <RadioGroup
+                            android:id="@+id/radioG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/nguoitrartien"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radioNhan_taoDonHang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="33dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_toEndOf="@+id/radioGui_taoDonHang"
+                                android:fontFamily="@font/consola"
+                                android:text="Người nhận"
+                                android:textSize="14sp" />
+
+                            <RadioButton
+                                android:id="@+id/radioGui_taoDonHang"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="50dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="0dp"
+                                android:checked="true"
+                                android:fontFamily="@font/consola"
+                                android:text="Người gửi"
+                                android:textSize="14sp" />
+                        </RadioGroup>
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cv2"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_hangHoa"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/person11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="0dp"
+                            android:src="@drawable/ic_outline_person_24"></ImageView>
+
+                        <TextView
+                            android:id="@+id/txt_nguoiGui"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/person11"
+                            android:fontFamily="@font/consola"
+                            android:text="Người gửi"
+                            android:textColor="#00513A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/person11"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/consola"
+                            android:paddingLeft="10dp"
+                            android:text="1,"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edt_moTa_taoDonHang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/person11"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="13dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Họ và tên"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/img12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txt_11"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="32dp"
+                            app:srcCompat="@drawable/ic_outline_monetization_on_24" />
+
+                        <EditText
+                            android:id="@+id/edt_money"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_moTa_taoDonHang"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Họ và tên"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/img1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img12"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="30dp"
+                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+
+                        <EditText
+                            android:id="@+id/edt_trongLuong"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_money"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Họ và tên"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rerrrr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="50dp"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btn_GuiHang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnthemdiachi"
+            android:fontFamily="@font/consola"
+            android:text="Gửi hàng"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

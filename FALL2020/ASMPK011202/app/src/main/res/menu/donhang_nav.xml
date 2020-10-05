@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/fing"
+        android:icon="@drawable/ic_baseline_fingerprint_24"
+        android:title=""
+        app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/donhang"
+
+        android:title="Đơn hàng"
+        app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title=""
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom"></item>
+</menu>

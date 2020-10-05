@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TienHang_Frag">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/consola"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="Làm cho vui chứ làm gì có tiền mà ấn qua đây chi!"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView16"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/consola"
+            android:gravity="center"
+            android:padding="30dp"
+            android:text="Tổn thương sâu sắc =((("
+            android:textSize="20sp" />
+    </RelativeLayout>
+</FrameLayout>
