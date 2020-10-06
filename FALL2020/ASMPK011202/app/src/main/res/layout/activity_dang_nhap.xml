@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/back2"
+    android:background="@drawable/backa"
     tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_marginTop="100dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/abc_vector_test" />
+        app:srcCompat="@drawable/logoa" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
@@ -29,11 +29,11 @@
             android:id="@+id/edittext_username"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:fontFamily="@font/cour"
-            android:textColorHint="#0055FF"
-            android:paddingLeft="20dp"
             android:background="@drawable/edt"
-            android:hint="@string/Tendangnhap" />
+            android:fontFamily="@font/cour"
+            android:hint="@string/Tendangnhap"
+            android:paddingLeft="20dp"
+            android:textColorHint="#0055FF" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="wrap_content"
@@ -54,6 +54,9 @@
             android:background="@drawable/edt"
             android:hint="@string/matkhau" />
     </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
     <CheckBox
         android:id="@+id/checkBox"
