@@ -4,78 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     android:background="@drawable/backb1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_marginTop="100dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginTop="100dp"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/logoa" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        app:hintEnabled="false"
         app:hintAnimationEnabled="true"
-        android:layout_height="wrap_content">
+        app:hintEnabled="false">
 
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_username"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/do2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:drawableStart="@drawable/do2"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edt"
+            android:drawableLeft="@drawable/do2"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/cour"
             android:hint="@string/Tendangnhap"
+            android:inputType="text"
+            android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#000000" />
+            android:textColorHint="#"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
         android:layout_marginTop="35dp"
-        app:hintEnabled="false"
         app:hintAnimationEnabled="true"
-        app:passwordToggleEnabled="true"
-        android:layout_height="wrap_content">
+        app:hintEnabled="false"
+        app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_password1"
-            android:textSize="20dp"
-            android:drawableLeft="@drawable/do1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:drawableStart="@drawable/do1"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:paddingLeft="20dp"
-            android:inputType="textPassword"
-            android:textColorHint="#000000"
+            android:drawableLeft="@drawable/do1"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/cour"
-            android:background="@drawable/edt"
-            android:hint="@string/matkhau" />
+            android:hint="@string/matkhau"
+            android:inputType="textPassword"
+            android:paddingStart="10dp"
+            android:paddingLeft="20dp"
+            android:textColorHint="#000000"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="300dp"
-        android:fontFamily="@font/cour"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:fontFamily="@font/cour"
         android:text="@string/checkbox" />
 
     <Button
@@ -83,33 +81,34 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/courbd"
         android:background="@drawable/button"
-        android:textSize="18sp"
+        android:fontFamily="@font/courbd"
         android:text="@string/dangnhap"
-        android:textColor="#FFFFFF"></Button>
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"></Button>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:textColor="#FF005EFF"
             android:fontFamily="@font/cour"
-            android:text="@string/ch_a_ng_k"></TextView>
+            android:text="@string/ch_a_ng_k"
+            android:textColor="#FF005EFF"></TextView>
 
         <TextView
             android:id="@+id/textview_register"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:paddingLeft="10dp"
             android:fontFamily="@font/cour"
-            android:textSize="18sp"
+            android:paddingLeft="10dp"
             android:text="@string/dangkia"
             android:textColor="#005EFF"
+            android:textSize="18sp"
             android:textStyle="bold"></TextView>
     </LinearLayout>
 
