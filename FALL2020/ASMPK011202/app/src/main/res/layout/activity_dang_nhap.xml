@@ -33,6 +33,8 @@
             android:drawableStart="@drawable/do2"
             android:drawableLeft="@drawable/do2"
             android:drawablePadding="10dp"
+            android:backgroundTintMode="add"
+            android:backgroundTint="#FF4800"
             android:fontFamily="@font/cour"
             android:hint="@string/Tendangnhap"
             android:inputType="text"
