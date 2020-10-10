@@ -161,26 +161,24 @@ public class DangKi extends AppCompatActivity {
 
                                                          }
                                                      });
-        getTextCnfPassword.addTextChangedListener(new
+        getTextCnfPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-                                                          TextWatcher() {
-                                                              @Override
-                                                              public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
-                                                              }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (!charSequence.toString().trim().equals(mTextPassword.getText().toString().trim())) {
+                    getTextCnfPassword.setError("Nhập lại không đúng!");
+                } else
+                    getTextCnfPassword.setError(null);
+            }
 
-                                                              @Override
-                                                              public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                                                  if (!charSequence.toString().trim().equals(mTextPassword.getText().toString().trim())) {
-                                                                      getTextCnfPassword.setError("Nhập lại không đúng!");
-                                                                  } else
-                                                                      getTextCnfPassword.setError(null);
-                                                              }
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-                                                              @Override
-                                                              public void afterTextChanged(Editable editable) {
-
-                                                              }
-                                                          });
+            }
+        });
     }
 }

@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,8 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 
-public class DangNhap extends AppCompatActivity {
-
+public class DangNhap extends AppCompatActivity implements View.OnClickListener  {
     EditText mTextUsername, mTextPassword;
     Button mButtonLogin;
     TextView mTextViewRegister;
@@ -53,92 +51,13 @@ public class DangNhap extends AppCompatActivity {
 
         //SharedPre
         sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
-
         mTextUsername.setText(sharedPreferences.getString("name",""));
         mTextPassword.setText(sharedPreferences.getString("pass",""));
         chk.setChecked(sharedPreferences.getBoolean("checked",false));
-
         checkTK();
-
         //Tạo sự kiện onClick, addTextChange . . .
-        mTextViewRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(DangNhap.this);
-                builder.setMessage("Bạn muốn đăng kí!");
-                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent  = new Intent(DangNhap.this,DangKi.class);
-                        startActivity(intent);
-                        Animatoo.animateInAndOut(DangNhap.this);
-                    }
-                });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-                builder.show();
-
-
-            }
-        });
-
-
-        mButtonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String user = mTextUsername.getText().toString().trim();
-                String pwd = mTextPassword.getText().toString().trim();
-
-//                Boolean res = db.checkUser(user);
-//                Boolean res2 = db.checkPass(pwd);
-                Boolean res3 = db.check(user,pwd);
-
-
-                if(user.equals("")||pwd.equals("")){
-                    Toast.makeText(DangNhap.this, "Không được để trống!", Toast.LENGTH_SHORT).show();
-
-                }else {
-                    if(res3 == true ){
-                        if(chk.isChecked()){
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("name",user);
-                            editor.putString("pass",pwd);
-                            editor.putBoolean("check",true);
-                            editor.commit();
-                        }else {
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.remove("name");
-                            editor.remove("pass");
-                            editor.remove("check");
-                            editor.commit();
-                        }
-                        Cursor cursor = db.getTenNguoiDung(user);
-                        String ten = "";
-                        int id = 0;
-                        if (cursor.getCount()==0){
-                            Toast.makeText(DangNhap.this, "Không có người dung này!", Toast.LENGTH_SHORT).show();
-                        }else {
-                            while (cursor.moveToNext()){
-                                id = cursor.getInt(0);
-                                ten = cursor.getString(3);
-                            }
-                        }
-                        Intent intent = new Intent(DangNhap.this, TrangChu.class);
-                        intent.putExtra("hvt","" + ten);
-                        intent.putExtra("id", id);
-                        startActivity(intent);
-                        Animatoo.animateInAndOut(DangNhap.this);
-                    }else {
-                        Toast.makeText(DangNhap.this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+        mTextViewRegister.setOnClickListener(this);
+        mButtonLogin.setOnClickListener(this);
 
 
 
@@ -213,4 +132,84 @@ public class DangNhap extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_login:
+                login();
+                break;
+            case R.id.textview_register:
+                register();
+                break;
+
+
+        }
+    }
+    private void login(){
+        String user = mTextUsername.getText().toString().trim();
+        String pwd = mTextPassword.getText().toString().trim();
+
+        Boolean res3 = db.check(user,pwd);
+
+        if(user.equals("")||pwd.equals("")){
+            Toast.makeText(DangNhap.this, "Không được để trống!", Toast.LENGTH_SHORT).show();
+
+        }else {
+            if(res3 == true ){
+                if(chk.isChecked()){
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("name",user);
+                    editor.putString("pass",pwd);
+                    editor.putBoolean("check",true);
+                    editor.commit();
+                }else {
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.remove("name");
+                    editor.remove("pass");
+                    editor.remove("check");
+                    editor.commit();
+                }
+                Cursor cursor = db.getTenNguoiDung(user);
+                String ten = "";
+                int id = 0;
+                if (cursor.getCount()==0){
+                    Toast.makeText(DangNhap.this, "Không có người dung này!", Toast.LENGTH_SHORT).show();
+                }else {
+                    while (cursor.moveToNext()){
+                        id = cursor.getInt(0);
+                        ten = cursor.getString(3);
+                    }
+                }
+                Intent intent = new Intent(DangNhap.this, TrangChu.class);
+                intent.putExtra("hvt","" + ten);
+                intent.putExtra("id", id);
+                startActivity(intent);
+                Animatoo.animateInAndOut(DangNhap.this);
+            }else {
+                Toast.makeText(DangNhap.this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private  void register(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(DangNhap.this);
+        builder.setMessage("Bạn muốn đăng kí!");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent  = new Intent(DangNhap.this,DangKi.class);
+                startActivity(intent);
+                Animatoo.animateInAndOut(DangNhap.this);
+            }
+        });
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
+    }
+
 }

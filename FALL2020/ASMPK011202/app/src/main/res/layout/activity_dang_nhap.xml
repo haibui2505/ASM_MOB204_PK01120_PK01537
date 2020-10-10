@@ -40,7 +40,7 @@
             android:inputType="text"
             android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#"
+            android:textColorHint="#000000"
             android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
