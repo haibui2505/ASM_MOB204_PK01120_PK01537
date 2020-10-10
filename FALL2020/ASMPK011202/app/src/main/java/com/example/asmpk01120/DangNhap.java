@@ -48,18 +48,16 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         mTextViewRegister = findViewById(R.id.textview_register);
         chk               = findViewById(R.id.checkBox);
 
-
         //SharedPre
         sharedPreferences = getSharedPreferences("data",MODE_PRIVATE);
         mTextUsername.setText(sharedPreferences.getString("name",""));
         mTextPassword.setText(sharedPreferences.getString("pass",""));
         chk.setChecked(sharedPreferences.getBoolean("checked",false));
+        //Kiểm tra TK xem có chưa
         checkTK();
         //Tạo sự kiện onClick, addTextChange . . .
         mTextViewRegister.setOnClickListener(this);
         mButtonLogin.setOnClickListener(this);
-
-
 
         mTextUsername.addTextChangedListener(new TextWatcher() {
             @Override
@@ -111,6 +109,23 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         });
 
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.button_login:
+                login();
+                break;
+            case R.id.textview_register:
+                register();
+                break;
+
+
+        }
+    }
+
+    //funtion
+
     private void checkTK(){
         if(sharedPreferences.getString("name","").equals("") && sharedPreferences.getString("pass","").equals("")){
         }else {
@@ -133,19 +148,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.button_login:
-                login();
-                break;
-            case R.id.textview_register:
-                register();
-                break;
 
-
-        }
-    }
     private void login(){
         String user = mTextUsername.getText().toString().trim();
         String pwd = mTextPassword.getText().toString().trim();
