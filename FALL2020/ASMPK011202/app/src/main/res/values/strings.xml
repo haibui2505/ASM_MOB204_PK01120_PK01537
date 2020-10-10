@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TREE-IN4</string>
-    <string name="tree_in4">TREE-IN4</string>
-    <string name="designer_pk01120">Designer: PK01120</string>
+    <string name="tree_in4">Việt teo pót</string>
+    <string name="designer_pk01120">Designer by desiger</string>
     <string name="Tendangnhap">  Tên đăng nhập</string>
     <string name="matkhau">Mật khẩu</string>
     <string name="rematkhau">Nhập lại mật khẩu</string>
@@ -9,7 +9,7 @@
     <string name="dangkied">Đã đăng kí?</string>
     <string name="dangnhap">Đăng nhập</string>
     <string name="ch_a_ng_k">Chưa đăng kí?</string>
-    <string name="dangkia">ĐĂNG KÍ</string>
+    <string name="dangkia">ĐĂNG KÍ 📝</string>
     <string name="title_activity_main2">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
