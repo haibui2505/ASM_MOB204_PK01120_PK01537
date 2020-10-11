@@ -53,6 +53,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         mTextUsername.setText(sharedPreferences.getString("name",""));
         mTextPassword.setText(sharedPreferences.getString("pass",""));
         chk.setChecked(sharedPreferences.getBoolean("checked",false));
+
         //Kiểm tra TK xem có chưa
         checkTK();
         //Tạo sự kiện onClick, addTextChange . . .
@@ -104,10 +105,8 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
-
     }
 
     @Override
@@ -119,13 +118,10 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
             case R.id.textview_register:
                 register();
                 break;
-
-
         }
     }
 
     //funtion
-
     private void checkTK(){
         if(sharedPreferences.getString("name","").equals("") && sharedPreferences.getString("pass","").equals("")){
         }else {
@@ -134,7 +130,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
             String ten = "";
             int id = 0;
             if (cursor.getCount() == 0){
-                Toast.makeText(DangNhap.this, "Không có người dung này!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DangNhap.this, "Không có người dùng này!", Toast.LENGTH_SHORT).show();
             }else {
                 while (cursor.moveToNext()){
                     id = cursor.getInt(0);
@@ -177,7 +173,7 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
                 String ten = "";
                 int id = 0;
                 if (cursor.getCount()==0){
-                    Toast.makeText(DangNhap.this, "Không có người dung này!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DangNhap.this, "Không có người dùng này!", Toast.LENGTH_SHORT).show();
                 }else {
                     while (cursor.moveToNext()){
                         id = cursor.getInt(0);
