@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <gradient
+        android:background="@drawable/vc3"
         android:type="linear"
         android:angle="0"
         android:startColor="#55C4C8"

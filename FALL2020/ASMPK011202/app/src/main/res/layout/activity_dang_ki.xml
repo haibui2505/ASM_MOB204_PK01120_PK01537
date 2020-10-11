@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backb"
+    android:background="@drawable/vc3"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".DangKi">
@@ -13,7 +13,7 @@
         android:id="@+id/imageView2"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="90dp"
         app:srcCompat="@drawable/logob" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -26,12 +26,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_username"
             android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edt"
-            android:fontFamily="@font/consola"
-            android:hint="@string/Tendangnhap"
+            android:layout_height="50dp"
+            android:backgroundTint="#FF8222"
+            android:backgroundTintMode="add"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/cour"
+            android:hint="Tên đăng nhập"
+            android:inputType="text"
+            android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#0055FF" />
+            android:textColorHint="#000000"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,12 +49,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_name"
             android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edt"
+            android:layout_height="50dp"
+            android:backgroundTint="#FF8222"
+            android:backgroundTintMode="add"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/cour"
             android:hint="Họ và tên"
+            android:inputType="text"
+            android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#0055FF" />
+            android:textColorHint="#000000"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,13 +72,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_password"
             android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edt"
+            android:layout_height="50dp"
+            android:backgroundTint="#FF8222"
+            android:backgroundTintMode="add"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/cour"
-            android:hint="@string/matkhau"
-            android:inputType="textPassword"
+            android:hint="Mật khẩu"
+            android:inputType="text"
+            android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#0ADDB3" />
+            android:textColorHint="#000000"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -80,13 +94,17 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_cnf_repassword"
             android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:background="@drawable/edt"
+            android:layout_height="50dp"
+            android:backgroundTint="#FF8222"
+            android:backgroundTintMode="add"
+            android:drawablePadding="10dp"
             android:fontFamily="@font/cour"
-            android:hint="@string/rematkhau"
-            android:inputType="textPassword"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="text"
+            android:paddingStart="10dp"
             android:paddingLeft="20dp"
-            android:textColorHint="#0055FF" />
+            android:textColorHint="#000000"
+            android:textSize="20dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -112,7 +130,7 @@
             android:layout_height="35dp"
             android:fontFamily="@font/cour"
             android:text="@string/dangkied"
-            android:textColor="#FF2743DD"></TextView>
+            android:textColor="#FFFFFF"></TextView>
 
         <TextView
             android:id="@+id/textview_register"
@@ -120,9 +138,9 @@
             android:layout_height="35dp"
             android:fontFamily="@font/cour"
             android:paddingLeft="10dp"
-            android:text="@string/dangnhap"
-            android:textColor="#2743DD"
+            android:text="| ĐĂNG NHẬP 📄"
             android:textSize="18sp"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"></TextView>
     </LinearLayout>
 </LinearLayout>
