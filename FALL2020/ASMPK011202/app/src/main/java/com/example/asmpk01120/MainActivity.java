@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +29,10 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 } finally {
-
                     Intent intent = new Intent(MainActivity.this, DangNhap.class);
 //                    Intent intent  = new Intent(MainActivity.this,TrangChu.class);
 
                     startActivity(intent);
-
-
                 }
             }
         };

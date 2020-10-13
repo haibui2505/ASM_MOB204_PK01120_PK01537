@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-
-    tools:context=".TaoDonHang">
+    tools:context=".TaoDonHang"
+    tools:ignore="VectorDrawableCompat">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -189,6 +189,7 @@
                             android:src="@drawable/ic_outline_person_24"></ImageView>
 
                         <TextView
+                            android:id="@+id/bbb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
@@ -212,7 +213,7 @@
                             app:srcCompat="@drawable/ic_outline_person_pin_24" />
 
                         <EditText
-                            android:id="@+id/edt_name"
+                            android:id="@+id/edt_hoVaTen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/img2"
@@ -236,10 +237,10 @@
                             app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
                         <EditText
-                            android:id="@+id/edt_phone"
+                            android:id="@+id/edt_SDTNguoiNhan"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_name"
+                            android:layout_below="@+id/edt_hoVaTen"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="50dp"
@@ -260,10 +261,10 @@
                             app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
 
                         <EditText
-                            android:id="@+id/edt_addr"
+                            android:id="@+id/edt_diaChiNguoiNhan"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_phone"
+                            android:layout_below="@+id/edt_SDTNguoiNhan"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="50dp"
@@ -277,7 +278,7 @@
                             android:id="@+id/nguoitrartien"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_addr"
+                            android:layout_below="@+id/edt_diaChiNguoiNhan"
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/consola"
                             android:text="Người trả tiền cước gửi hàng"
@@ -318,6 +319,18 @@
                                 android:text="Người gửi"
                                 android:textSize="14sp" />
                         </RadioGroup>
+
+                        <CheckBox
+                            android:id="@+id/chk_noiNhan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Nhận tại bưu cục"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
 
                     </RelativeLayout>
@@ -361,7 +374,7 @@
                             android:layout_marginTop="5dp"
                             android:layout_toEndOf="@+id/person11"
                             android:fontFamily="@font/consola"
-                            android:text="Người gửi"
+                            android:text="Hàng hóa"
                             android:textColor="#00513A"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -390,7 +403,7 @@
                             android:layout_marginStart="50dp"
                             android:layout_marginTop="13dp"
                             android:layout_marginEnd="10dp"
-                            android:hint="Họ và tên"
+                            android:hint="Mô tả hàng hóa"
                             android:inputType="textLongMessage"
                             android:textSize="14sp" />
 
@@ -405,7 +418,7 @@
                             app:srcCompat="@drawable/ic_outline_monetization_on_24" />
 
                         <EditText
-                            android:id="@+id/edt_money"
+                            android:id="@+id/edt_giaTriHangHoa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edt_moTa_taoDonHang"
@@ -414,8 +427,8 @@
                             android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
-                            android:hint="Họ và tên"
-                            android:inputType="textLongMessage"
+                            android:hint="Giá trị hàng hóa"
+                            android:inputType="number"
                             android:textSize="14sp" />
 
                         <ImageView
@@ -430,21 +443,140 @@
 
                         <EditText
                             android:id="@+id/edt_trongLuong"
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_giaTriHangHoa"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp"
+                            android:hint="Trọng lượng"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/edt_soLuong"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_giaTriHangHoa"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/img4"
+                            android:hint="Số lượng"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/img3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/img1"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="30dp"
+                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+
+                        <ImageView
+                            android:id="@+id/img4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_giaTriHangHoa"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_toEndOf="@+id/edt_trongLuong"
+                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+
+                        <ImageView
+                            android:id="@+id/img5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_giaTriHangHoa"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_toEndOf="@+id/edt_trongLuong"
+                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+
+                        <EditText
+                            android:id="@+id/edt_money"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_money"
+                            android:layout_below="@+id/edt_soLuong"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="25dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Tiền thu hộ"
+                            android:inputType="number"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cv3"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:elevation="5dp"
+                    app:cardCornerRadius="5dp">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:id="@+id/imgmakhuyenmai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="10dp"
+                            app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
+
+                        <EditText
+                            android:id="@+id/edt_maKhuyenMai"
+                            android:layout_width="371dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_marginEnd="10dp"
+                            android:hint="Mã khuyến mãi"
+                            android:inputType="textLongMessage"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/img_madonhang_khuyenmai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/imgmakhuyenmai"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="26dp"
+                            app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
+
+                        <EditText
+                            android:id="@+id/edt_maDonHang_taodonhang"
+                            android:layout_width="371dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edt_maKhuyenMai"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"
                             android:layout_marginEnd="10dp"
-                            android:hint="Họ và tên"
+                            android:hint="Mã đơn hàng"
                             android:inputType="textLongMessage"
                             android:textSize="14sp" />
-
-
                     </RelativeLayout>
-
                 </androidx.cardview.widget.CardView>
 
 

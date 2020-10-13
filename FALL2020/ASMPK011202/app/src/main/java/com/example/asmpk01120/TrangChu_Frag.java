@@ -106,7 +106,8 @@ public class TrangChu_Frag extends Fragment {
         db = new DatabaseHelper(getActivity(), "new.sqlite", null, 1);
 
         db.QueryData("CREATE TABLE IF NOT EXISTS DiaChi (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaNguoiDung VARCHAR(5) , Ten VARCHAR(200), Phone VARCHAR(10), DiaChi VARCHAR(200))");
-        db.QueryData("CREATE TABLE IF NOT EXISTS GuiHang (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaHangHoa VARCHAR(5), Ten VARCHAR(30), Phone VARCHAR(10), DiaChi VARCHAR(200), ThuHo VARCHAR(15), NgayGui VARCHAR(200), TrangThai INTEGER) ");
+        db.QueryData("CREATE TABLE IF NOT EXISTS GuiHang (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaNGuoiDung VARCHAR(5), HoTenNguoiNhan VARCHAR(30), SDTNguoiNhan VARCHAR(11), DiaChiNguoiNhan VARCHAR(100), TienThuHo VARCHAR(7), NgayGui VARCHAR(11),\n" +
+                "MoTaHangHoa VARCHAR(200), GiaTriHangHoa VARCHAR(7),TrongLuongHangHoa VARCHAR(2), SoLuongHangHoa VARCHAR(3), NoiNhan VARCHAR(1),TienCuoc VARCHAR(5), TrangThai INTEGER) ");
         db.QueryData("CREATE TABLE IF NOT EXISTS ThongBao (Id INTEGER PRIMARY KEY AUTOINCREMENT, TenThongBao VARCHAR(100), NgayThongBao VARCHAR(10)) ");
 
         //Layout click
@@ -198,7 +199,7 @@ public class TrangChu_Frag extends Fragment {
         Cursor cursorCheck = db.GetData("SELECT * FROM GuiHang");
         if (cursorCheck.getCount() == 0) {
         } else {
-            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaHangHoa = '" + id + "' ORDER BY Id DESC");
+            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
             while (cursor.moveToNext()) {
 
                 final int idnv = cursor.getInt(0);

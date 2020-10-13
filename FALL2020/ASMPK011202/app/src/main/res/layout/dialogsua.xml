@@ -53,7 +53,7 @@
                 app:srcCompat="@drawable/ic_outline_person_pin_24" />
 
             <EditText
-                android:id="@+id/edt_name"
+                android:id="@+id/edt_hoVaTen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/img2"
@@ -77,10 +77,10 @@
                 app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
             <EditText
-                android:id="@+id/edt_phone"
+                android:id="@+id/edt_SDTNguoiNhan"
                 android:layout_width="371dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edt_name"
+                android:layout_below="@+id/edt_hoVaTen"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="50dp"
@@ -101,10 +101,10 @@
                 app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
 
             <EditText
-                android:id="@+id/edt_addr"
+                android:id="@+id/edt_diaChiNguoiNhan"
                 android:layout_width="371dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edt_phone"
+                android:layout_below="@+id/edt_SDTNguoiNhan"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="50dp"
@@ -125,10 +125,10 @@
                 app:srcCompat="@drawable/ic_outline_monetization_on_24" />
 
             <EditText
-                android:id="@+id/edt_money"
+                android:id="@+id/edt_giaTriHangHoa"
                 android:layout_width="371dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edt_addr"
+                android:layout_below="@+id/edt_diaChiNguoiNhan"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="50dp"
@@ -142,7 +142,7 @@
                 android:id="@+id/btn_suaGuiHang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/edt_money"
+                android:layout_below="@+id/edt_giaTriHangHoa"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="60dp"

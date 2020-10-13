@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.os.Message;
-import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -177,7 +176,7 @@ public class listguihang_fragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_donhang,
                     fragment).commit();
         } else {
-            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaHangHoa = '" + id + "' ORDER BY Id DESC");
+            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
             txtTatCa.setText("Tất cả: " + cursor.getCount());
             arrayList.clear();
             while (cursor.moveToNext()) {
@@ -242,10 +241,10 @@ public class listguihang_fragment extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialogsua);
 
-        final EditText edtname = dialog.findViewById(R.id.edt_name);
-        final EditText edtsdt = dialog.findViewById(R.id.edt_phone);
-        final EditText addr = dialog.findViewById(R.id.edt_addr);
-        final EditText money = dialog.findViewById(R.id.edt_money);
+        final EditText edtname = dialog.findViewById(R.id.edt_hoVaTen);
+        final EditText edtsdt = dialog.findViewById(R.id.edt_SDTNguoiNhan);
+        final EditText addr = dialog.findViewById(R.id.edt_diaChiNguoiNhan);
+        final EditText money = dialog.findViewById(R.id.edt_giaTriHangHoa);
 
         Button btnXacNhan = dialog.findViewById(R.id.btn_suaGuiHang);
 

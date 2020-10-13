@@ -52,14 +52,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Gửi hàng
-    public long addHangGui(String maso, String ten, String sdt, String adr, String tien, String ngay, Integer trangThai) {
+    public long addHangGui(String maso, String TenNguoiNhan, String SDTNguoiNhan, String DiaChiNguoiNhan,String MoTaHangHoa, String GiaTriHangHoa, String TrongLuongHangHoa,String SoLuongHangHoa, String NoiNhan, String TienCuoc, String TienThuHo, String ngay, Integer trangThai) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("MaHangHoa", maso);
-        contentValues.put("Ten", ten);
-        contentValues.put("Phone", sdt);
-        contentValues.put("DiaChi", adr);
-        contentValues.put("ThuHo", tien);
+        contentValues.put("MaNGuoiDung", maso);
+        contentValues.put("HoTenNguoiNhan", TenNguoiNhan);
+        contentValues.put("SDTNguoiNhan", SDTNguoiNhan);
+        contentValues.put("DiaChiNguoiNhan", DiaChiNguoiNhan);
+        contentValues.put("TienThuHo", TienThuHo);
+        contentValues.put("MoTaHangHoa",MoTaHangHoa);
+        contentValues.put("GiaTriHangHoa",GiaTriHangHoa);
+        contentValues.put("TrongLuongHangHoa",TrongLuongHangHoa);
+        contentValues.put("SoLuongHangHoa",SoLuongHangHoa);
+        contentValues.put("NoiNhan",NoiNhan);
+        contentValues.put("TienCuoc", TienCuoc);
         contentValues.put("NgayGui", ngay);
         contentValues.put("TrangThai",trangThai);
 
