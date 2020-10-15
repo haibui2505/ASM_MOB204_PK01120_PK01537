@@ -274,6 +274,7 @@
                             android:inputType="textLongMessage"
                             android:textSize="14sp" />
 
+
                         <TextView
                             android:id="@+id/nguoitrartien"
                             android:layout_width="371dp"

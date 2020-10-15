@@ -19,7 +19,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 public class DangKi extends AppCompatActivity implements View.OnClickListener {
 
     DatabaseHelper db;
-    EditText mTextUsername, mTextPassword, getTextCnfPassword, mTextTenNguoiDung;
+    EditText mTextUsername, mTextPassword, getTextCnfPassword, mTextTenNguoiDung, edittext_name;
     Button mButtonRegister;
     TextView mTextViewLogin;
 
@@ -29,7 +29,9 @@ public class DangKi extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_dang_ki);
 
         //Validate form
-        final String noWhiteSpace = "[a-zA-Z._\\d]+$";
+        final String noWhiteSpace = "^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$";
+        final String pass = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
+        final String vali_hoTen = "^[A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴa-zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý ]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
 
         //Database
         db = new DatabaseHelper(this, "new.sqlite", null, 1);
@@ -41,10 +43,34 @@ public class DangKi extends AppCompatActivity implements View.OnClickListener {
         getTextCnfPassword = findViewById(R.id.edittext_cnf_repassword);
         mButtonRegister = findViewById(R.id.button_register);
         mTextViewLogin = findViewById(R.id.textview_register);
+        edittext_name = findViewById(R.id.edittext_name);
 
         //các sự kiện
         mTextViewLogin.setOnClickListener(this);
         mButtonRegister.setOnClickListener(this);
+
+        edittext_name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (edittext_name.getText().toString().trim().equals("")) {
+                    edittext_name.setError("Không để trống!");
+                } else if (!edittext_name.getText().toString().trim().matches(vali_hoTen)) {
+                    edittext_name.setError("Nhập đúng định dạng hộ cái!");
+                } else if (s.length() > 25){
+                    edittext_name.setError("Không lớn hơn 25 kí tự!");
+                } else edittext_name.setError(null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         mTextUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -82,7 +108,7 @@ public class DangKi extends AppCompatActivity implements View.OnClickListener {
                     mTextPassword.setError("Vui lòng không để trống!");
                 } else if (charSequence.length() <= 5) {
                     mTextPassword.setError("Tối thiểu 6 kí tự!");
-                } else if (!charSequence.toString().trim().matches(noWhiteSpace)) {
+                } else if (!charSequence.toString().trim().matches(pass)) {
                     mTextPassword.setError("Vui lòng không chứa kí tự đặc biệt!");
                 } else {
                     mTextPassword.setError(null);

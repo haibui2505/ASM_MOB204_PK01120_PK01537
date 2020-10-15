@@ -35,11 +35,12 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_dang_nhap);
 
         //Kiểm tra Validate form
-        final String noWhiteSpace = "[a-zA-Z._\\d]+$";
+        final String noWhiteSpace = "^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$";
+        final String pass = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
 
         //Database
         db = new DatabaseHelper(this,"new.sqlite",null,1);
-        db.QueryData("CREATE TABLE IF NOT EXISTS DanhSach (Id INTEGER PRIMARY KEY AUTOINCREMENT, Ten VARCHAR(200), Pass VARCHAR(200), TenNguoiDung VARCHAR(200))");
+        db.QueryData("CREATE TABLE IF NOT EXISTS DanhSach (Id INTEGER PRIMARY KEY AUTOINCREMENT, Ten VARCHAR(10), Pass VARCHAR(10), TenNguoiDung VARCHAR(25))");
 
         //Ánh xạ
         mTextUsername     = findViewById(R.id.edittext_username);
@@ -69,11 +70,11 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(mTextUsername.getText().toString().trim().equals("")){
-                    mTextUsername.setError("Vui lòng không để trống!");
+                    mTextUsername.setError("Không được để trống!");
                 }else if(charSequence.length() <= 5) {
                     mTextUsername.setError("Tối thiểu 6 kí tự!");
                 }else if(!charSequence.toString().trim().matches(noWhiteSpace)){
-                    mTextUsername.setError("Vui lòng không chưa kí tự đặc biệt!");
+                    mTextUsername.setError("Không chứa kí tự đặc biệt!");
                 }else {
                     mTextUsername.setError(null);
                 }
@@ -93,11 +94,11 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(mTextPassword.getText().toString().trim().equals("")){
-                    mTextPassword.setError("Vui lòng không để trống!");
+                    mTextPassword.setError("Không được để trống!");
                 }else if(charSequence.length() <= 5) {
                     mTextPassword.setError("Tối thiểu 6 kí tự!");
-                }else if(!charSequence.toString().trim().matches(noWhiteSpace)){
-                    mTextPassword.setError("Vui lòng không chứa kí tự đặc biệt!");
+                }else if(!charSequence.toString().trim().matches(pass)){
+                    mTextPassword.setError("Gồm 1 chữ hoa, số và kí tự đặc biệt!");
                 }else {
                     mTextPassword.setError(null);
                 }

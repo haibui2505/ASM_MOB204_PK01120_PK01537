@@ -5,9 +5,11 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -108,6 +110,7 @@ public class listguihang_fragment extends Fragment {
         // Inflate the layout for this fragment
 
         lv_guiHang.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 index = i;
@@ -145,7 +148,7 @@ public class listguihang_fragment extends Fragment {
                 editor.putString("id", id);
                 editor.commit();
 
-                final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaHangHoa = '" + id + "' ORDER BY Id DESC");
+                final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
                 while (cursor.moveToNext()) {
                     trangThai = cursor.getInt(7);
 
