@@ -45,6 +45,8 @@ public class TaoDonHang extends AppCompatActivity {
     RelativeLayout relativeLayout;
     Spinner spinner, spinner2;
 
+    String tenThanhPho, tenHuyen;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,13 +128,13 @@ public class TaoDonHang extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(tienThuHo.getText().toString().trim().equals("")){
+                if (tienThuHo.getText().toString().trim().equals("")) {
                     tienThuHo.setError("Không được để trống!");
-                }else if(Integer.valueOf(tienThuHo.getText().toString().trim()) < 1000){
+                } else if (Integer.valueOf(tienThuHo.getText().toString().trim()) < 1000) {
                     tienThuHo.setError("Không được nhập nhỏ hơn 1000đ");
-                }else if(s.length() > 15){
+                } else if (s.length() > 15) {
                     tienThuHo.setError("Giá trị không lớn hơn 9.999.999đ");
-                }else tienThuHo.setError(null);
+                } else tienThuHo.setError(null);
             }
 
             @Override
@@ -562,193 +564,937 @@ public class TaoDonHang extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
                     spinner2.setAdapter(adapterChon);
-
                 } else if (position == 1) {
                     spinner2.setAdapter(hanoi);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
 
                 } else if (position == 2) {
                     spinner2.setAdapter(hcmm);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 3) {
                     spinner2.setAdapter(cantho);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 4) {
                     spinner2.setAdapter(danang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 5) {
                     spinner2.setAdapter(haiphong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 6) {
                     spinner2.setAdapter(baria);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 7) {
                     spinner2.setAdapter(bacgiang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 8) {
                     spinner2.setAdapter(backan);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 9) {
                     spinner2.setAdapter(baclieu);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 10) {
                     spinner2.setAdapter(bacninh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 11) {
                     spinner2.setAdapter(bentre);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 12) {
                     spinner2.setAdapter(binhdinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 13) {
                     spinner2.setAdapter(binhphuoc);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 14) {
                     spinner2.setAdapter(binhthuan);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 15) {
                     spinner2.setAdapter(camau);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 16) {
                     spinner2.setAdapter(caobang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 17) {
                     spinner2.setAdapter(dakklak);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 18) {
                     spinner2.setAdapter(daknong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 19) {
                     spinner2.setAdapter(dienbien);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 20) {
                     spinner2.setAdapter(dongnai);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 21) {
                     spinner2.setAdapter(dongthap);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 22) {
                     spinner2.setAdapter(gialai);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 23) {
                     spinner2.setAdapter(hagiang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 24) {
                     spinner2.setAdapter(hanam);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 25) {
                     spinner2.setAdapter(hatinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 26) {
                     spinner2.setAdapter(haiduong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 27) {
                     spinner2.setAdapter(haugiang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 28) {
                     spinner2.setAdapter(hoabinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 29) {
                     spinner2.setAdapter(hungyen);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 30) {
                     spinner2.setAdapter(khanhhoa);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 31) {
                     spinner2.setAdapter(kiengiang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 32) {
                     spinner2.setAdapter(kontum);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 33) {
                     spinner2.setAdapter(laichau);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 34) {
                     spinner2.setAdapter(lamdong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 35) {
                     spinner2.setAdapter(langson);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 36) {
                     spinner2.setAdapter(laocai);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 37) {
                     spinner2.setAdapter(longan);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 38) {
                     spinner2.setAdapter(namdinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 39) {
                     spinner2.setAdapter(nghean);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 40) {
                     spinner2.setAdapter(ninhbinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 41) {
                     spinner2.setAdapter(ninhthuan);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 42) {
                     spinner2.setAdapter(phtho);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 43) {
                     spinner2.setAdapter(quangbinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 44) {
                     spinner2.setAdapter(quangnam);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 45) {
                     spinner2.setAdapter(quangngai);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 46) {
                     spinner2.setAdapter(quangninh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 47) {
                     spinner2.setAdapter(quangtri);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 48) {
                     spinner2.setAdapter(soctrang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 49) {
                     spinner2.setAdapter(sonla);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 50) {
                     spinner2.setAdapter(tayninh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 51) {
                     spinner2.setAdapter(thaibinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 52) {
                     spinner2.setAdapter(thainguyen);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 53) {
                     spinner2.setAdapter(thanhhoa);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 54) {
                     spinner2.setAdapter(thuathienhue);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 55) {
                     spinner2.setAdapter(tiengiang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 56) {
                     spinner2.setAdapter(travinh);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 57) {
                     spinner2.setAdapter(tuyenquang);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 58) {
                     spinner2.setAdapter(vinhlong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 59) {
                     spinner2.setAdapter(vinhphuc);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 60) {
                     spinner2.setAdapter(yenbai);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 61) {
                     spinner2.setAdapter(phuyen);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 } else if (position == 62) {
                     spinner2.setAdapter(binhduong);
+                    tenThanhPho = (String) parent.getItemAtPosition(position);
+                    spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            tenHuyen = (String) parent.getItemAtPosition(position);
+                            Log.d("hai", "onItemSelected: " + tenThanhPho + " " + tenHuyen);
+                        }
 
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
                 }
             }
 
