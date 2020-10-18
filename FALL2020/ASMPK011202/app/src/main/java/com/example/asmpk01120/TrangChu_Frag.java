@@ -109,6 +109,7 @@ public class TrangChu_Frag extends Fragment {
         db.QueryData("CREATE TABLE IF NOT EXISTS GuiHang (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaNGuoiDung VARCHAR(5), HoTenNguoiNhan VARCHAR(30), SDTNguoiNhan VARCHAR(11), DiaChiNguoiNhan VARCHAR(100), TienThuHo VARCHAR(7), NgayGui VARCHAR(11),\n" +
                 "MoTaHangHoa VARCHAR(200), GiaTriHangHoa VARCHAR(7),TrongLuongHangHoa VARCHAR(2), SoLuongHangHoa VARCHAR(3), NoiNhan VARCHAR(1),TienCuoc VARCHAR(5), TrangThai INTEGER) ");
         db.QueryData("CREATE TABLE IF NOT EXISTS ThongBao (Id INTEGER PRIMARY KEY AUTOINCREMENT, TenThongBao VARCHAR(100), NgayThongBao VARCHAR(10)) ");
+        db.QueryData("CREATE TABLE IF NOT EXISTS AUTOPHONE (Id INTEGER PRIMARY KEY AUTOINCREMENT, PhoneNumber VARCHAR(11), DiaChi VARCHAR(100))");
 
         //Layout click
         vanDon = view.findViewById(R.id.LiL_vanDon);

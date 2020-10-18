@@ -236,7 +236,7 @@
                             android:layout_marginTop="30dp"
                             app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
-                        <EditText
+                        <AutoCompleteTextView
                             android:id="@+id/edt_SDTNguoiNhan"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
@@ -335,7 +335,7 @@
 
                         <Spinner
                             android:id="@+id/spinner"
-                            android:layout_width="150dp"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/edt_SDTNguoiNhan"
                             android:layout_alignParentStart="true"
@@ -345,11 +345,13 @@
 
                         <Spinner
                             android:id="@+id/spinner2"
-                            android:layout_width="150dp"
+                            android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_SDTNguoiNhan"
-                            android:layout_marginStart="20dp"
+                            android:layout_below="@+id/spinner"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="-150dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
                             android:layout_toEndOf="@+id/spinner"
                             android:spinnerMode="dropdown" />
 

@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -35,16 +36,18 @@ import java.util.Date;
 public class TaoDonHang extends AppCompatActivity {
 
     TextView ten, sdt, diaChi, ngay;
-    EditText tienThuHo, hoVaTenNguoiNhan, SDTNguoiNhan, diaChiNguoiNhan, edt_moTa_taoDonHang, edt_giaTriHangHoa, edt_soLuong, edt_trongLuong;
+    EditText tienThuHo, hoVaTenNguoiNhan, diaChiNguoiNhan, edt_moTa_taoDonHang, edt_giaTriHangHoa, edt_soLuong, edt_trongLuong;
     RadioButton radioNhan_taoDonHang, radioGui_taoDonHang;
     CheckBox noiNhan;
+    AutoCompleteTextView SDTNguoiNhan;
     Button btnGuiHang;
     DatabaseHelper db;
     SimpleDateFormat simpleDateFormat;
     Calendar calendar;
     RelativeLayout relativeLayout;
     Spinner spinner, spinner2;
-
+    private ArrayAdapter arrayAdapter;
+    ArrayList<String> list;
     String tenThanhPho, tenHuyen;
 
     @Override
@@ -79,7 +82,9 @@ public class TaoDonHang extends AppCompatActivity {
         noiNhan = findViewById(R.id.chk_noiNhan);
         radioGui_taoDonHang = findViewById(R.id.radioGui_taoDonHang);
         radioNhan_taoDonHang = findViewById(R.id.radioNhan_taoDonHang);
-
+        //       autocomplete
+        SDTNguoiNhan.setAdapter(arrayAdapter);
+        SDTNguoiNhan.setThreshold(1);
         spnner_city();
         relativeLayout = findViewById(R.id.rll_nguoiGui);
 
@@ -234,6 +239,10 @@ public class TaoDonHang extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+
+
                 if (SDTNguoiNhan.getText().toString().trim().equals("")) {
                     SDTNguoiNhan.setError("Không được để trống!");
                 } else if (!SDTNguoiNhan.getText().toString().trim().matches(vali_sdt)) {
@@ -342,6 +351,7 @@ public class TaoDonHang extends AppCompatActivity {
                     } else
                         Toast.makeText(TaoDonHang.this, "Thêm hàng gửi thất bại!", Toast.LENGTH_SHORT).show();
                 }
+                submitForm();
 
             }
         });
@@ -353,6 +363,19 @@ public class TaoDonHang extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void submitForm() {
+
+        String tencv = SDTNguoiNhan.getText().toString().trim();
+        db.QueryData("INSERT INTO AUTOPHONE VALUES(null, '" + tencv + "')");
+        Cursor dataDanhSach = db.GetData("SELECT * FROM AUTOPHONE");
+        while (dataDanhSach.moveToNext()) {
+            String ten = dataDanhSach.getString(1);
+            arrayAdapter.clear();
+            arrayAdapter.add(ten);
+        }
 
     }
 

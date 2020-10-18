@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -52,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Gửi hàng
-    public long addHangGui(String maso, String TenNguoiNhan, String SDTNguoiNhan, String DiaChiNguoiNhan,String MoTaHangHoa, String GiaTriHangHoa, String TrongLuongHangHoa,String SoLuongHangHoa, String NoiNhan, String TienCuoc, String TienThuHo, String ngay, Integer trangThai) {
+    public long addHangGui(String maso, String TenNguoiNhan, String SDTNguoiNhan, String DiaChiNguoiNhan, String MoTaHangHoa, String GiaTriHangHoa, String TrongLuongHangHoa, String SoLuongHangHoa, String NoiNhan, String TienCuoc, String TienThuHo, String ngay, Integer trangThai) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("MaNGuoiDung", maso);
@@ -60,20 +59,34 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("SDTNguoiNhan", SDTNguoiNhan);
         contentValues.put("DiaChiNguoiNhan", DiaChiNguoiNhan);
         contentValues.put("TienThuHo", TienThuHo);
-        contentValues.put("MoTaHangHoa",MoTaHangHoa);
-        contentValues.put("GiaTriHangHoa",GiaTriHangHoa);
-        contentValues.put("TrongLuongHangHoa",TrongLuongHangHoa);
-        contentValues.put("SoLuongHangHoa",SoLuongHangHoa);
-        contentValues.put("NoiNhan",NoiNhan);
+        contentValues.put("MoTaHangHoa", MoTaHangHoa);
+        contentValues.put("GiaTriHangHoa", GiaTriHangHoa);
+        contentValues.put("TrongLuongHangHoa", TrongLuongHangHoa);
+        contentValues.put("SoLuongHangHoa", SoLuongHangHoa);
+        contentValues.put("NoiNhan", NoiNhan);
         contentValues.put("TienCuoc", TienCuoc);
         contentValues.put("NgayGui", ngay);
-        contentValues.put("TrangThai",trangThai);
+        contentValues.put("TrangThai", trangThai);
 
         long res = db.insert("GuiHang", null, contentValues);
         db.close();
         return res;
 
     }
+
+    public boolean checksdt(String number) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from AUTOPHONE where PhoneNumber = ?", new String[]{number});
+        int count = cursor.getCount();
+        cursor.close();
+        db.close();
+        if (count > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public boolean checkID(String username) {
 
         SQLiteDatabase db = this.getReadableDatabase();
