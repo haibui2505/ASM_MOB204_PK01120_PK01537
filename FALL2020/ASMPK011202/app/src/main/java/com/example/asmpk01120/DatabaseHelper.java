@@ -74,17 +74,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean checksdt(String number) {
+    public Cursor checksdt(String number) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from AUTOPHONE where PhoneNumber = ?", new String[]{number});
-        int count = cursor.getCount();
-        cursor.close();
-        db.close();
-        if (count > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return cursor;
     }
 
     public boolean checkID(String username) {

@@ -46,8 +46,10 @@ public class TaoDonHang extends AppCompatActivity {
     Calendar calendar;
     RelativeLayout relativeLayout;
     Spinner spinner, spinner2;
-    private ArrayAdapter arrayAdapter;
+
+    ArrayAdapter arrayAdapter;
     ArrayList<String> list;
+
     String tenThanhPho, tenHuyen;
 
     @Override
@@ -68,23 +70,32 @@ public class TaoDonHang extends AppCompatActivity {
         sdt = findViewById(R.id.txt_sdt);
         diaChi = findViewById(R.id.txt_diachi);
         ngay = findViewById(R.id.txt_ngay);
-//      người nhận
 
+//      người nhận
         edt_moTa_taoDonHang = findViewById(R.id.edt_moTa_taoDonHang);
         edt_giaTriHangHoa = findViewById(R.id.edt_giaTriHangHoa);
         edt_soLuong = findViewById(R.id.edt_soLuong);
         edt_trongLuong = findViewById(R.id.edt_trongLuong);
         hoVaTenNguoiNhan = findViewById(R.id.edt_hoVaTen);
-        SDTNguoiNhan = findViewById(R.id.edt_SDTNguoiNhan);
+        SDTNguoiNhan = (AutoCompleteTextView) findViewById(R.id.edt_SDTNguoiNhan);
         tienThuHo = findViewById(R.id.edt_money);
         diaChiNguoiNhan = findViewById(R.id.edt_diaChiNguoiNhan);
         btnGuiHang = findViewById(R.id.btn_GuiHang);
         noiNhan = findViewById(R.id.chk_noiNhan);
         radioGui_taoDonHang = findViewById(R.id.radioGui_taoDonHang);
         radioNhan_taoDonHang = findViewById(R.id.radioNhan_taoDonHang);
+
         //       autocomplete
+        list = new ArrayList<>();
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, list);
+        Log.d("hai", "onCreate: " + arrayAdapter.getCount());
         SDTNguoiNhan.setAdapter(arrayAdapter);
         SDTNguoiNhan.setThreshold(1);
+
+
+//        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.autoCompleteTextView);
+//        autoCompleteTextView.setAdapter(arrayAdapter);
+//        autoCompleteTextView.setThreshold(1);
         spnner_city();
         relativeLayout = findViewById(R.id.rll_nguoiGui);
 
@@ -93,6 +104,7 @@ public class TaoDonHang extends AppCompatActivity {
 
 //        nếu date1 sai thì dùng cái này
         calendar = Calendar.getInstance();
+
 //        Tự thêm ngày
         Date date1 = new Date();
         String date = simpleDateFormat.format(date1);
@@ -111,7 +123,7 @@ public class TaoDonHang extends AppCompatActivity {
         } else {
             while (cursor.moveToNext()) {
                 ten.setText(cursor.getString(2));
-                sdt.setText("*   " + cursor.getString(3));
+                sdt.setText("*    " + cursor.getString(3));
                 diaChi.setText(cursor.getString(4));
             }
         }
@@ -239,10 +251,6 @@ public class TaoDonHang extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
-
-
                 if (SDTNguoiNhan.getText().toString().trim().equals("")) {
                     SDTNguoiNhan.setError("Không được để trống!");
                 } else if (!SDTNguoiNhan.getText().toString().trim().matches(vali_sdt)) {
@@ -342,16 +350,18 @@ public class TaoDonHang extends AppCompatActivity {
 
                     if (val > 0) {
                         Toast.makeText(TaoDonHang.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-                        TaoDonHang.this.onBackPressed();
+//                        TaoDonHang.this.onBackPressed();
                         long val2 = db.addThongBao("'" + ten.getText().toString().trim() + "' vừa thêm 1 đơn hàng đến người nhân '" + hovatennguoinhan + "' thành công!", date);
                         if (val2 > 0) {
                             Log.d("thongbao", "Thêm thông báo thành công");
                         } else Log.d("thongbao", "Thêm thông báo thất bại");
                         getGuiHang();
+                        autoSdt();
+
                     } else
                         Toast.makeText(TaoDonHang.this, "Thêm hàng gửi thất bại!", Toast.LENGTH_SHORT).show();
                 }
-                submitForm();
+
 
             }
         });
@@ -362,19 +372,26 @@ public class TaoDonHang extends AppCompatActivity {
                 Toast.makeText(TaoDonHang.this, "Đang được bổ sung!", Toast.LENGTH_SHORT).show();
             }
         });
+        submitForm();
 
+    }
 
+    private void autoSdt() {
+        String sdt = SDTNguoiNhan.getText().toString().trim();
+        Cursor cursor = db.checksdt(sdt);
+        if (cursor.getCount() == 0) {
+            db.QueryData("INSERT INTO AUTOPHONE VALUES(null, '" + sdt + "','con meo')");
+        }
     }
 
     private void submitForm() {
 
-        String tencv = SDTNguoiNhan.getText().toString().trim();
-        db.QueryData("INSERT INTO AUTOPHONE VALUES(null, '" + tencv + "')");
+
         Cursor dataDanhSach = db.GetData("SELECT * FROM AUTOPHONE");
         while (dataDanhSach.moveToNext()) {
-            String ten = dataDanhSach.getString(1);
-            arrayAdapter.clear();
-            arrayAdapter.add(ten);
+            String phone = dataDanhSach.getString(1);
+            arrayAdapter.add(phone);
+            arrayAdapter.notifyDataSetChanged();
         }
 
     }
