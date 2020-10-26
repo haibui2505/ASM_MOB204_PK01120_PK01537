@@ -26,6 +26,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,6 +49,10 @@ public class TaoDonHang extends AppCompatActivity {
     Calendar calendar;
     RelativeLayout relativeLayout;
     Spinner spinner, spinner2;
+    Cursor cursor;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference reference;
 
     ArrayAdapter arrayAdapter;
     ArrayList<String> list;
@@ -70,6 +77,7 @@ public class TaoDonHang extends AppCompatActivity {
         sdt = findViewById(R.id.txt_sdt);
         diaChi = findViewById(R.id.txt_diachi);
         ngay = findViewById(R.id.txt_ngay);
+
 
 //      người nhận
         edt_moTa_taoDonHang = findViewById(R.id.edt_moTa_taoDonHang);
@@ -117,7 +125,7 @@ public class TaoDonHang extends AppCompatActivity {
         final String myname = intent.getStringExtra("ten");
         final Integer myId = intent.getIntExtra("id", 1);
 
-        Cursor cursor = db.getMaNguoiDung(myId.toString().trim());
+        final Cursor cursor = db.getMaNguoiDung(myId.toString().trim());
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "Không có dữ liệu!", Toast.LENGTH_SHORT).show();
         } else {
@@ -345,12 +353,22 @@ public class TaoDonHang extends AppCompatActivity {
                 if (hovatennguoinhan.equals("") || sdtnguoinhan.equals("") || diachinguoinhan.equals("") || tienthuho.equals("")) {
                     Toast.makeText(TaoDonHang.this, "Không để trống!", Toast.LENGTH_SHORT).show();
                 } else {
+
 //                    thêm vào db HangGui
                     long val = db.addHangGui(myId.toString().trim(), hovatennguoinhan, sdtnguoinhan, diachinguoinhan, motahanghoa, giatrihanghoa, trongluonghanghoa, soluonghanghoa, noinhan, String.valueOf(tiencuoc), String.valueOf(tienthuhochinh), date, 0);
+                    String a = myId.toString().trim();
+                    Cursor cursor1 = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + a + "' ORDER BY Id DESC");
+                    while (cursor1.moveToNext()) {
+                        int idnv = cursor1.getInt(0);
+                        firebaseDatabase = FirebaseDatabase.getInstance();
+                        reference = firebaseDatabase.getReference("tinhTrang");
+                        fireHelper fireHelper = new fireHelper("0", String.valueOf(idnv));
+                        reference.child(myId.toString()).setValue(fireHelper);
+                    }
 
+                    TaoDonHang.this.onBackPressed();
                     if (val > 0) {
                         Toast.makeText(TaoDonHang.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
-//                        TaoDonHang.this.onBackPressed();
                         long val2 = db.addThongBao("'" + ten.getText().toString().trim() + "' vừa thêm 1 đơn hàng đến người nhân '" + hovatennguoinhan + "' thành công!", date);
                         if (val2 > 0) {
                             Log.d("thongbao", "Thêm thông báo thành công");
@@ -385,8 +403,6 @@ public class TaoDonHang extends AppCompatActivity {
     }
 
     private void submitForm() {
-
-
         Cursor dataDanhSach = db.GetData("SELECT * FROM AUTOPHONE");
         while (dataDanhSach.moveToNext()) {
             String phone = dataDanhSach.getString(1);

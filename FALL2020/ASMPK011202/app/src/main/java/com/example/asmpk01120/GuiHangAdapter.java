@@ -1,6 +1,7 @@
 package com.example.asmpk01120;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,9 +77,19 @@ public class GuiHangAdapter extends BaseAdapter {
         holder.txt_thuho.setText(guiHang.getThuho());
         Integer trangThai = Integer.valueOf(guiHang.getTrangThai());
         if (trangThai == 0) {
-            holder.txt_trangThai.setText("Đang gửi ...");
-        } else holder.txt_trangThai.setText("Đã gửi!");
-
+            holder.txt_trangThai.setText("Mới");
+        } else if(trangThai == 1){
+            holder.txt_trangThai.setText("Giao shipper!");
+        }else if(trangThai == 2) {
+            holder.txt_trangThai.setText("Đang giao. . .");
+        } else if(trangThai == 3){
+            holder.txt_trangThai.setText("Đã giao!");
+        }else if(trangThai == 4){
+            holder.txt_trangThai.setText("Hoàn trả!");
+        }else{
+            holder.txt_trangThai.setText("Mất hàng!");
+            holder.txt_trangThai.setTextColor(Color.RED);
+        }
         return view;
     }
 }

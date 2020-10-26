@@ -2,9 +2,14 @@ package com.example.asmpk01120;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -30,6 +35,16 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asmpk01120.service.Broadcast;
+import com.example.asmpk01120.service.MyService;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.ref.Reference;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,7 +57,7 @@ import static android.content.Context.MODE_PRIVATE;
  * create an instance of this fragment.
  */
 public class listguihang_fragment extends Fragment {
-
+    BroadcastReceiver receiver = new Broadcast();
     DatabaseHelper db;
     ListView lv_guiHang;
     ArrayList<GuiHang> arrayList;
@@ -51,6 +66,10 @@ public class listguihang_fragment extends Fragment {
     TextView txtTatCa;
     Integer trangThai;
     Boolean trangthai = false;
+    Cursor cursor;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference reference;
+    private int notificationID = 1;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -152,7 +171,7 @@ public class listguihang_fragment extends Fragment {
                 while (cursor.moveToNext()) {
                     trangThai = cursor.getInt(7);
 
-                    if (trangThai == 0){
+                    if (trangThai == 0) {
                         popupMenu.show();
                     }
                 }
@@ -166,11 +185,42 @@ public class listguihang_fragment extends Fragment {
     }
 
     private void getGuiHang() {
+
         SharedPreferences sharedPreferencesID = getActivity().getSharedPreferences("IDnguoidung", MODE_PRIVATE);
-        String id = sharedPreferencesID.getString("id", "").trim();
+        final String id = sharedPreferencesID.getString("id", "").trim();
         SharedPreferences.Editor editor = sharedPreferencesID.edit();
         editor.putString("id", id);
         editor.commit();
+
+        reference = FirebaseDatabase.getInstance().getReference("tinhTrang");
+        Query query = reference.orderByChild("tinhTrangg");
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (Integer.valueOf(id) != 0) {
+                    String tinhtrang_donhang = snapshot.child(id).child("trangThai").getValue(String.class);
+                    String madonhang_donhang = snapshot.child(id).child("maDonHang").getValue(String.class);
+                    trangThai = Integer.valueOf(tinhtrang_donhang);
+                    cursor = db.GetData("SELECT * FROM GuiHang WHERE Id = '" + madonhang_donhang + "' ORDER BY Id DESC");
+                    while (cursor.moveToNext()) {
+                        int idnv = cursor.getInt(0);
+                        db.QueryData("UPDATE GuiHang SET TrangThai = " + trangThai + " Where Id = '" + idnv + "'");
+
+                    }
+                    Intent intent = new Intent(getActivity(), Broadcast.class);
+                    intent.putExtra("notifi", notificationID);
+                    intent.putExtra("mess", "Trạng thái đơn hàng " + madonhang_donhang + " vừa được cập nhật!");
+                    IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+                    getActivity().registerReceiver(receiver, intentFilter);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Cursor cursorCheck = db.GetData("SELECT * FROM GuiHang");
         if (cursorCheck.getCount() == 0) {
@@ -179,7 +229,7 @@ public class listguihang_fragment extends Fragment {
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_donhang,
                     fragment).commit();
         } else {
-            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
+            cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
             txtTatCa.setText("Tất cả: " + cursor.getCount());
             arrayList.clear();
             while (cursor.moveToNext()) {
@@ -190,19 +240,14 @@ public class listguihang_fragment extends Fragment {
                 String diachi = cursor.getString(4);
                 String thuho = cursor.getString(5);
                 String ngaygui = cursor.getString(6);
-                trangThai = cursor.getInt(7);
+                trangThai = cursor.getInt(13);
 
-                if (trangThai == 0){
-
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            db.QueryData("UPDATE GuiHang SET TrangThai = 1 Where Id = '" + idnv + "'");
-                            getGuiHang();
-                        }
-                    },10000);
+                if (trangThai == 0) {
+                    db.QueryData("UPDATE GuiHang SET TrangThai = " + trangThai + " Where Id = '" + idnv + "'");
+                } else if (trangThai == 1) {
+                    db.QueryData("UPDATE GuiHang SET TrangThai = " + trangThai + " Where Id = '" + idnv + "'");
                 }
+
                 arrayList.add(new GuiHang(idnv, ten, phone, thuho, ngaygui, diachi, trangThai));
             }
             adapter.notifyDataSetChanged();
@@ -279,7 +324,8 @@ public class listguihang_fragment extends Fragment {
 
 
     }
-        public class mHandler extends Handler {
+
+    public class mHandler extends Handler {
         @Override
         public void handleMessage(@NonNull Message msg) {
 
