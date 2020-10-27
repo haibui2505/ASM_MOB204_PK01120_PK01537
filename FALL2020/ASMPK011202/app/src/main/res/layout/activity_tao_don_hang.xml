@@ -386,7 +386,7 @@
                             android:layout_alignParentTop="true"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="0dp"
-                            android:src="@drawable/ic_outline_person_24"></ImageView>
+                            android:src="@drawable/pack"></ImageView>
 
                         <TextView
                             android:id="@+id/txt_nguoiGui"
@@ -402,19 +402,16 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
+
+                        <ImageView
                             android:id="@+id/txt_11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/person11"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="30dp"
-                            android:fontFamily="@font/consola"
-                            android:paddingLeft="10dp"
-                            android:text="1,"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="26dp"
+                            app:srcCompat="@drawable/text" />
 
                         <EditText
                             android:id="@+id/edt_moTa_taoDonHang"
@@ -437,7 +434,7 @@
                             android:layout_below="@+id/txt_11"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="32dp"
+                            android:layout_marginTop="26dp"
                             app:srcCompat="@drawable/ic_outline_monetization_on_24" />
 
                         <EditText
@@ -461,8 +458,8 @@
                             android:layout_below="@+id/img12"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="30dp"
-                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+                            android:layout_marginTop="26dp"
+                            app:srcCompat="@drawable/kgg" />
 
                         <EditText
                             android:id="@+id/edt_trongLuong"
@@ -497,8 +494,8 @@
                             android:layout_below="@+id/img1"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="0dp"
-                            android:layout_marginTop="30dp"
-                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+                            android:layout_marginTop="35dp"
+                            app:srcCompat="@drawable/tran" />
 
                         <ImageView
                             android:id="@+id/img4"
@@ -508,7 +505,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="24dp"
                             android:layout_toEndOf="@+id/edt_trongLuong"
-                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+                            app:srcCompat="@drawable/soluong" />
 
                         <ImageView
                             android:id="@+id/img5"
@@ -518,7 +515,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="24dp"
                             android:layout_toEndOf="@+id/edt_trongLuong"
-                            app:srcCompat="@drawable/ic_outline_person_pin_24" />
+                            app:srcCompat="@drawable/soluong" />
 
                         <EditText
                             android:id="@+id/edt_money"
@@ -562,7 +559,7 @@
                             android:layout_alignParentTop="true"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
+                            app:srcCompat="@drawable/bonus" />
 
                         <EditText
                             android:id="@+id/edt_maKhuyenMai"
@@ -586,7 +583,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="0dp"
                             android:layout_marginTop="26dp"
-                            app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
+                            app:srcCompat="@drawable/ma" />
 
                         <EditText
                             android:id="@+id/edt_maDonHang_taodonhang"
