@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/trangChu_Frag">
+    <fragment
+        android:id="@+id/trangChu_Frag"
+        android:name="com.example.asmpk01120.TrangChu_Frag"
+        android:label="fragment_trang_chu_2"
+        tools:layout="@layout/fragment_trang_chu_2" >
+        <action
+            android:id="@+id/action_trangChu_Frag_to_donHang_Frag2"
+            app:destination="@id/donHang_Frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/donHang_Frag"
+        android:name="com.example.asmpk01120.DonHang_Frag"
+        android:label="fragment_don_hang_2"
+        tools:layout="@layout/fragment_don_hang_2" >
+        <action
+            android:id="@+id/action_donHang_Frag_to_tienHang_Frag"
+            app:destination="@id/tienHang_Frag" />
+        <action
+            android:id="@+id/action_donHang_Frag_to_trangChu_Frag"
+            app:destination="@id/trangChu_Frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/tienHang_Frag"
+        android:name="com.example.asmpk01120.TienHang_Frag"
+        android:label="fragment_tien_hang_"
+        tools:layout="@layout/fragment_tien_hang_" >
+        <action
+            android:id="@+id/action_tienHang_Frag_to_thongBao_Frag"
+            app:destination="@id/thongBao_Frag" />
+        <action
+            android:id="@+id/action_tienHang_Frag_to_trangChu_Frag"
+            app:destination="@id/trangChu_Frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/thongBao_Frag"
+        android:name="com.example.asmpk01120.ThongBao_Frag"
+        android:label="fragment_thong_bao_"
+        tools:layout="@layout/fragment_thong_bao_" >
+        <action
+            android:id="@+id/action_thongBao_Frag_to_danhMuc_Frag"
+            app:destination="@id/danhMuc_Frag" />
+        <action
+            android:id="@+id/action_thongBao_Frag_to_trangChu_Frag"
+            app:destination="@id/trangChu_Frag" />
+    </fragment>
+    <fragment
+        android:id="@+id/danhMuc_Frag"
+        android:name="com.example.asmpk01120.DanhMuc_Frag"
+        android:label="fragment_danh_muc_"
+        tools:layout="@layout/fragment_danh_muc_" >
+        <action
+            android:id="@+id/action_danhMuc_Frag_to_trangChu_Frag"
+            app:destination="@id/trangChu_Frag" />
+    </fragment>
+</navigation>

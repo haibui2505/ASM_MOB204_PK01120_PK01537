@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".TrangChu_Frag">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rel1"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="15dp"
+                        android:src="@drawable/ic_baseline_fingerprint_24"></ImageView>
+
+                    <TextView
+                        android:id="@+id/edittext_tenNguoiDung"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="76dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/consola"
+                        android:gravity="center"
+                        android:text="Xin chào, Bùi Văn Hải"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="38dp"
+                        android:layout_height="34dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="18dp"
+                        app:srcCompat="@drawable/ic_baseline_search_24"
+                        tools:ignore="VectorDrawableCompat" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="-1dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="#F6F6F6"
+                    android:orientation="vertical">
+
+
+                    <!--        </FrameLayout>-->
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="80dp"
+                        android:fontFamily="@font/consola"
+                        android:paddingLeft="15dp"
+                        android:text="Chuyển phát ViettelPost"
+                        android:textSize="22sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textView12"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <GridLayout
+                                android:id="@+id/grid1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginBottom="0dp"
+                                android:padding="10dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="0"
+                                    android:layout_column="0"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/LiL_vanDon"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/vandon"></ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Vận đơn mẫu"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="0"
+                                    android:layout_column="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/lil_taoDon"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/taodon">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Tạo đơn trong mẫu"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="0"
+                                    android:layout_column="2"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/lil_taoDonQte"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/quocte">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Tạo đơn quóc tế"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="1"
+                                    android:layout_rowSpan="1"
+                                    android:layout_column="0"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/lil_Excel"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/excel">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Nhập excel"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="1"
+                                    android:layout_column="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/lil_chatLuong"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/chatluong">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Chất lượng dịch vụ"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="120dp"
+                                    android:layout_row="1"
+                                    android:layout_column="2"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="10dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:elevation="5dp"
+                                    app:cardCornerRadius="10dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/lil_more"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="80dp"
+                                            android:src="@drawable/more">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/consola"
+                                            android:text="Xem thêm"
+                                            android:textAlignment="center"
+                                            android:textSize="15sp"></TextView>
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+                            </GridLayout>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:elevation="5dp"
+                                app:cardCornerRadius="10dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="10dp"
+                                    android:src="@drawable/deal"></ImageView>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="60dp"
+                    android:outlineSpotShadowColor="#676666"
+                    app:cardCornerRadius="10dp">
+
+                    <RelativeLayout
+                        android:id="@+id/fr1"
+                        android:layout_width="380dp"
+                        android:layout_height="150dp"
+                        android:background="#FFFFFF">
+
+                        <!--                    <RelativeLayout-->
+                        <!--                        android:layout_width="match_parent"-->
+                        <!--                        android:layout_height="match_parent">-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="-1dp"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/vien"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <TextView
+                                android:id="@+id/textView7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:fontFamily="@font/consola"
+                                android:text="Viettel Post"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textView77"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/cour"
+                                android:text="0 đ"
+                                android:textColor="#12B300"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="190dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginTop="78dp"
+                            android:background="@drawable/vienright"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/consola"
+                                android:textSize="20sp"
+                                app:srcCompat="@drawable/ic_baseline_attach_money_24" />
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="52dp"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/consola"
+                                android:text="Điểm thưởng"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginBottom="0dp"
+                                android:fontFamily="@font/cour"
+                                android:gravity="center"
+                                android:text="0"
+                                android:textColor="#12B300"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="190dp"
+                            android:layout_height="60dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="78dp"
+                            android:layout_marginEnd="0dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="42dp"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/consola"
+                                android:text="TK Khuyến mãi"
+                                android:textSize="18sp" />
+
+                            <ImageView
+                                android:id="@+id/imageView5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="0dp"
+                                app:srcCompat="@drawable/ic_baseline_card_giftcard_24" />
+
+                            <TextView
+                                android:id="@+id/textView11"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginBottom="0dp"
+                                android:fontFamily="@font/cour"
+                                android:gravity="center"
+                                android:text="0 đ"
+                                android:textColor="#12B300"
+                                android:textSize="20sp" />
+                        </RelativeLayout>
+
+                        <!--                    </RelativeLayout>-->
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
+</FrameLayout>
