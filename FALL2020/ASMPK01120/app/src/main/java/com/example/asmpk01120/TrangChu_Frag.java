@@ -197,27 +197,27 @@ public class TrangChu_Frag extends Fragment {
         editor.putString("id", id);
         editor.commit();
 
-        Cursor cursorCheck = db.GetData("SELECT * FROM GuiHang");
-        if (cursorCheck.getCount() == 0) {
-        } else {
-            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
-            while (cursor.moveToNext()) {
-
-                final int idnv = cursor.getInt(0);
-                Integer trangThai = cursor.getInt(7);
-
-                if (trangThai == 0) {
-
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            db.QueryData("UPDATE GuiHang SET TrangThai = 1 Where Id = '" + idnv + "'");
-                        }
-                    }, 10000);
-                }
-            }
-        }
+//        Cursor cursorCheck = db.GetData("SELECT * FROM GuiHang");
+//        if (cursorCheck.getCount() == 0) {
+//        } else {
+//            final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
+//            while (cursor.moveToNext()) {
+//
+//                final int idnv = cursor.getInt(0);
+//                Integer trangThai = cursor.getInt(7);
+//
+//                if (trangThai == 0) {
+//
+//                    Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            db.QueryData("UPDATE GuiHang SET TrangThai = 1 Where Id = '" + idnv + "'");
+//                        }
+//                    }, 10000);
+//                }
+//            }
+//        }
     }
 
 

@@ -358,19 +358,20 @@ public class TaoDonHang extends AppCompatActivity {
 //                    thêm vào db HangGui
                     long val = db.addHangGui(myId.toString().trim(), hovatennguoinhan, sdtnguoinhan, diachinguoinhan, motahanghoa, giatrihanghoa, trongluonghanghoa, soluonghanghoa, noinhan, String.valueOf(tiencuoc), String.valueOf(tienthuhochinh), date, 0);
                     String a = myId.toString().trim();
-                    Cursor cursor1 = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + a + "' ORDER BY Id DESC");
+                    Cursor cursor1 = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + a + "' ORDER BY Id ASC");
+                    int idnv = 0;
                     while (cursor1.moveToNext()) {
-                        int idnv = cursor1.getInt(0);
+                        idnv = cursor1.getInt(0);
                         firebaseDatabase = FirebaseDatabase.getInstance();
                         reference = firebaseDatabase.getReference("tinhTrang");
                         reference1 = firebaseDatabase.getReference("tinhTrang");
-
-                        fireHelper fireHelper = new fireHelper("0", String.valueOf(idnv),hovatennguoinhan);
-                        Log.d("hai","TaoDaoHang: " + hovatennguoinhan);
-//                        đẩy lên firebase
-                        reference.child(myId.toString()).child(String.valueOf(idnv)).setValue(fireHelper);
-                        reference1.child("donHang").setValue(String.valueOf(cursor1.getCount()));
+                        Log.d("haii", String.valueOf(idnv));
                     }
+
+                    fireHelper fireHelper = new fireHelper("0", String.valueOf(idnv),hovatennguoinhan);
+//                        đẩy lên firebase
+                    reference.child(myId.toString()).child(String.valueOf(idnv)).setValue(fireHelper);
+                    reference1.child("donHang").setValue(String.valueOf(cursor1.getCount()));
 
                     TaoDonHang.this.onBackPressed();
                     if (val > 0) {

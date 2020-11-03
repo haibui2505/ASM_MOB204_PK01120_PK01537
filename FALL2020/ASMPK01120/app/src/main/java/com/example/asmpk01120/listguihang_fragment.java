@@ -156,7 +156,21 @@ public class listguihang_fragment extends Fragment {
                                 DiaLogSua(a, name, phone, adr, money);
                                 break;
                         }
+                        return false;
+                    }
+                });
+                PopupMenu popupMenu1 = new PopupMenu(view.getContext(), view);
+                popupMenu1.inflate(R.menu.menu_popup_xoa);
+                popupMenu1.setGravity(Gravity.RIGHT);
 
+                popupMenu1.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.menuXoa:
+                                DialogXoa(a);
+                                break;
+                        }
                         return false;
                     }
                 });
@@ -173,6 +187,8 @@ public class listguihang_fragment extends Fragment {
 
                     if (trangThai == 0) {
                         popupMenu.show();
+                    }else {
+                        popupMenu1.show();
                     }
                 }
 
@@ -266,9 +282,18 @@ public class listguihang_fragment extends Fragment {
                 String date = new SimpleDateFormat("dd/MM/yyyy").format(date1);
                 Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE Id = '" + id + "'");
                 String name = "";
+                String maNguoiDung = "";
                 while (cursor.moveToNext()) {
                     name = cursor.getString(2);
+                    maNguoiDung = cursor.getString(1);
                 }
+
+                reference = FirebaseDatabase.getInstance().getReference("tinhTrang");
+                fireHelper fireHelper = new fireHelper(null,null,null);
+                Log.d("hai","" +maNguoiDung+ id);
+                reference.child(maNguoiDung).child(String.valueOf(id)).setValue(fireHelper);
+
+
                 long val2 = db.addThongBao("1 đơn hàng đến người nhân '" + name + "' đã được hủy thành công!", date);
                 if (val2 > 0) {
                     Log.d("thongbao", "Thêm thông báo thành công");
@@ -311,7 +336,7 @@ public class listguihang_fragment extends Fragment {
                 String addrMoi = addr.getText().toString().trim();
                 String moneyMoi = money.getText().toString().trim();
 
-                db.QueryData("UPDATE GuiHang SET Ten = '" + tenMoi + "', Phone = '" + sdtMoi + "', DiaChi = '" + addrMoi + "', ThuHo = '" + moneyMoi + "' Where Id = '" + id + "'");
+                db.QueryData("UPDATE GuiHang SET HoTenNguoiNhan = '" + tenMoi + "', SDTNguoiNhan = '" + sdtMoi + "', DiaChiNguoiNhan = '" + addrMoi + "', TienThuHo = '" + moneyMoi + "' Where Id = '" + id + "'");
                 Toast.makeText(getActivity(), "Chúc mừng bạn thêm nghiệp thành công!", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
                 getGuiHang();

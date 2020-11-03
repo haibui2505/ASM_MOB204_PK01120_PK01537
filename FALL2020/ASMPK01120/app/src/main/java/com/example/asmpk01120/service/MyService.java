@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.opengl.Visibility;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
@@ -61,24 +62,25 @@ public class MyService extends Service {
 //                    .setAutoCancel(true)
 //                    .setPriority(NotificationCompat.PRIORITY_HIGH)
 //                    .build();
+//            startForeground(1,newMessageNotification);
 
             Intent intent1 = new Intent(this, MainActivity.class);
             intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, 0);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setSmallIcon(R.drawable.common_google_signin_btn_icon_dark)
                     .setContentText(mess)
-//                    .setStyle(new NotificationCompat.InboxStyle()
-//                            .addLine("123")
-//                            .addLine("456")
-//                            .setBigContentTitle("Tinh Tinh!")
-//                            .setSummaryText("ABC"))
+                    .setContentTitle("Tinh Tinh!")
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                     .setContentIntent(pendingIntent)
-                    .setGroup(GROUP_KEY_WORK_EMAIL)
-                    .setGroupSummary(true)
+                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                     .setAutoCancel(true);
+
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+            NotificationManager notificationManager1 = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager1.notify(1,builder.build());
             startForeground(1, builder.build());
         }
         return START_NOT_STICKY;

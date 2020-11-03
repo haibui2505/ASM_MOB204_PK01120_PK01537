@@ -21,11 +21,12 @@ public class Broadcast extends BroadcastReceiver {
         boolean WIFI = networkInfoWF.isConnected();
         NetworkInfo networkInfomGPRS = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         boolean GPRS = networkInfomGPRS.isConnected();
-
+        Intent i = new Intent(context, DangNhap.class);
         if (WIFI == false && GPRS == false) {
             MainActivity.logincheck = false;
-            Intent i = new Intent(context, DangNhap.class);
             context.startActivity(i);
+        }else if(WIFI == true || GPRS == true){
+            MainActivity.logincheck = true;
         }
     }
 }

@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -43,13 +44,6 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
         IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         this.registerReceiver(broadcastReceiver, intentFilter);
 
-        if (MainActivity.logincheck == true) {
-            Toast.makeText(this, "ddusng", Toast.LENGTH_SHORT).show();
-        } else if (MainActivity.logincheck == false) {
-            Toast.makeText(this, "saiiiiii", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "nguuuuuuuuuuu", Toast.LENGTH_SHORT).show();
-        }
         //Kiểm tra Validate form
         final String noWhiteSpace = "^[a-zA-Z0-9]+([._]?[a-zA-Z0-9]+)*$";
         final String pass = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$";
@@ -148,52 +142,12 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
 
     //funtion
     private void checkTK() {
-        if (sharedPreferences.getString("name", "").equals("") && sharedPreferences.getString("pass", "").equals("")) {
+        if (MainActivity.logincheck == false) {
+            process();
         } else {
-            String user = mTextUsername.getText().toString().trim();
-            Cursor cursor = db.getTenNguoiDung(user);
-            String ten = "";
-            int id = 0;
-            if (cursor.getCount() == 0) {
-                Toast.makeText(DangNhap.this, "Không có người dùng này!", Toast.LENGTH_SHORT).show();
+            if (sharedPreferences.getString("name", "").equals("") && sharedPreferences.getString("pass", "").equals("")) {
             } else {
-                while (cursor.moveToNext()) {
-                    id = cursor.getInt(0);
-                    ten = cursor.getString(3);
-                }
-            }
-            Intent intent = new Intent(DangNhap.this, TrangChu.class);
-            intent.putExtra("hvt", "" + ten);
-            intent.putExtra("id", id);
-            startActivity(intent);
-        }
-    }
-
-
-    private void login() {
-        String user = mTextUsername.getText().toString().trim();
-        String pwd = mTextPassword.getText().toString().trim();
-
-        Boolean res3 = db.check(user, pwd);
-
-        if (user.equals("") || pwd.equals("")) {
-            Toast.makeText(DangNhap.this, "Không được để trống!", Toast.LENGTH_SHORT).show();
-
-        } else {
-            if (res3 == true) {
-                if (chk.isChecked()) {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("name", user);
-                    editor.putString("pass", pwd);
-                    editor.putBoolean("check", true);
-                    editor.commit();
-                } else {
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.remove("name");
-                    editor.remove("pass");
-                    editor.remove("check");
-                    editor.commit();
-                }
+                String user = mTextUsername.getText().toString().trim();
                 Cursor cursor = db.getTenNguoiDung(user);
                 String ten = "";
                 int id = 0;
@@ -209,11 +163,67 @@ public class DangNhap extends AppCompatActivity implements View.OnClickListener 
                 intent.putExtra("hvt", "" + ten);
                 intent.putExtra("id", id);
                 startActivity(intent);
-                Animatoo.animateInAndOut(DangNhap.this);
-            } else {
-                Toast.makeText(DangNhap.this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    private void login() {
+        String user = mTextUsername.getText().toString().trim();
+        String pwd = mTextPassword.getText().toString().trim();
+
+        Boolean res3 = db.check(user, pwd);
+
+        if (MainActivity.logincheck == true) {
+            if (user.equals("") || pwd.equals("")) {
+                Toast.makeText(DangNhap.this, "Không được để trống!", Toast.LENGTH_SHORT).show();
+
+            } else {
+                if (res3 == true) {
+                    if (chk.isChecked()) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("name", user);
+                        editor.putString("pass", pwd);
+                        editor.putBoolean("check", true);
+                        editor.commit();
+                    } else {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.remove("name");
+                        editor.remove("pass");
+                        editor.remove("check");
+                        editor.commit();
+                    }
+                    Cursor cursor = db.getTenNguoiDung(user);
+                    String ten = "";
+                    int id = 0;
+                    if (cursor.getCount() == 0) {
+                        Toast.makeText(DangNhap.this, "Không có người dùng này!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        while (cursor.moveToNext()) {
+                            id = cursor.getInt(0);
+                            ten = cursor.getString(3);
+                        }
+                    }
+                    Intent intent = new Intent(DangNhap.this, TrangChu.class);
+                    intent.putExtra("hvt", "" + ten);
+                    intent.putExtra("id", id);
+                    startActivity(intent);
+                    Animatoo.animateInAndOut(DangNhap.this);
+                } else {
+                    Toast.makeText(DangNhap.this, "Sai tài khoản hoặc mật khẩu!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+            process();
+        }
+    }
+
+    private void process() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(DangNhap.this);
+        LayoutInflater layoutInflater = this.getLayoutInflater();
+        builder.setView(layoutInflater.inflate(R.layout.processbar, null));
+        builder.setCancelable(false);
+        builder.show();
     }
 
     private void register() {
