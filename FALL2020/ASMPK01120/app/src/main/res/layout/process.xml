@@ -7,24 +7,18 @@
     android:background="@drawable/bg_round"
     android:layout_gravity="center"
     android:gravity="center">
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/bg_round">
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></ProgressBar>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đang tải..."
-            android:textSize="20sp"
-            android:fontFamily="@font/consola"
-            android:layout_marginTop="10dp"></TextView>
-
-
-    </LinearLayout>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="207dp"
+        android:text="Chi tiết đơn hàng"
+        android:textColor="#000000"
+        android:textSize="18sp" />
 
 </RelativeLayout>

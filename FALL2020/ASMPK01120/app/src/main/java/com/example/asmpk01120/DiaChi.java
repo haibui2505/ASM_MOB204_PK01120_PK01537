@@ -1,18 +1,17 @@
 package com.example.asmpk01120;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.asmpk01120.adpter.DatabaseHelper;
 
 public class DiaChi extends AppCompatActivity {
 

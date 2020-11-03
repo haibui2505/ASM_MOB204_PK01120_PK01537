@@ -1,12 +1,13 @@
-package com.example.asmpk01120;
+package com.example.asmpk01120.adpter;
 
 public class fireHelper {
-    private String trangThai, maDonHang, tenNguoiDung;
+    private String trangThai, maDonHang, tenNguoiDung, maKhachHang;
 
-    public fireHelper(String trangThai, String maDonHang, String tenNguoiDung) {
+    public fireHelper(String trangThai, String maDonHang, String tenNguoiDung, String maKhachHang) {
         this.trangThai = trangThai;
         this.maDonHang = maDonHang;
         this.tenNguoiDung = tenNguoiDung;
+        this.maKhachHang = maKhachHang;
     }
 
     public String getTrangThai() {
@@ -31,5 +32,13 @@ public class fireHelper {
 
     public void setTenNguoiDung(String tenNguoiDung) {
         this.tenNguoiDung = tenNguoiDung;
+    }
+
+    public String getMaKhachHang() {
+        return maKhachHang;
+    }
+
+    public void setMaKhachHang(String maKhachHang) {
+        this.maKhachHang = maKhachHang;
     }
 }

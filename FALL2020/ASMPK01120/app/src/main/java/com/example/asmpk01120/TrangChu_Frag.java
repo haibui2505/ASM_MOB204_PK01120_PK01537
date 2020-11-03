@@ -9,14 +9,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.asmpk01120.adpter.DatabaseHelper;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -107,7 +107,7 @@ public class TrangChu_Frag extends Fragment {
 
         db.QueryData("CREATE TABLE IF NOT EXISTS DiaChi (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaNguoiDung VARCHAR(5) , Ten VARCHAR(200), Phone VARCHAR(10), DiaChi VARCHAR(200))");
         db.QueryData("CREATE TABLE IF NOT EXISTS GuiHang (Id INTEGER PRIMARY KEY AUTOINCREMENT, MaNGuoiDung VARCHAR(5), HoTenNguoiNhan VARCHAR(30), SDTNguoiNhan VARCHAR(11), DiaChiNguoiNhan VARCHAR(100), TienThuHo VARCHAR(7), NgayGui VARCHAR(11),\n" +
-                "MoTaHangHoa VARCHAR(200), GiaTriHangHoa VARCHAR(7),TrongLuongHangHoa VARCHAR(2), SoLuongHangHoa VARCHAR(3), NoiNhan VARCHAR(1),TienCuoc VARCHAR(5), TrangThai INTEGER) ");
+                "MoTaHangHoa VARCHAR(200), GiaTriHangHoa VARCHAR(7),TrongLuongHangHoa VARCHAR(2), SoLuongHangHoa VARCHAR(3), NoiNhan VARCHAR(10),TienCuoc VARCHAR(5), TrangThai INTEGER) ");
         db.QueryData("CREATE TABLE IF NOT EXISTS ThongBao (Id INTEGER PRIMARY KEY AUTOINCREMENT, TenThongBao VARCHAR(100), NgayThongBao VARCHAR(10)) ");
         db.QueryData("CREATE TABLE IF NOT EXISTS AUTOPHONE (Id INTEGER PRIMARY KEY AUTOINCREMENT, PhoneNumber VARCHAR(11), DiaChi VARCHAR(100))");
 

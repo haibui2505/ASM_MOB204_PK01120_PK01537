@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -26,6 +25,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asmpk01120.adpter.DatabaseHelper;
+import com.example.asmpk01120.adpter.fireHelper;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -85,10 +86,10 @@ public class TaoDonHang extends AppCompatActivity {
         edt_giaTriHangHoa = findViewById(R.id.edt_giaTriHangHoa);
         edt_soLuong = findViewById(R.id.edt_soLuong);
         edt_trongLuong = findViewById(R.id.edt_trongLuong);
-        hoVaTenNguoiNhan = findViewById(R.id.edt_hoVaTen);
-        SDTNguoiNhan = (AutoCompleteTextView) findViewById(R.id.edt_SDTNguoiNhan);
+        hoVaTenNguoiNhan = findViewById(R.id.edthovaten);
+        SDTNguoiNhan = (AutoCompleteTextView) findViewById(R.id.edttendangnhap);
         tienThuHo = findViewById(R.id.edt_money);
-        diaChiNguoiNhan = findViewById(R.id.edt_diaChiNguoiNhan);
+        diaChiNguoiNhan = findViewById(R.id.edtmatkhaumoi);
         btnGuiHang = findViewById(R.id.btn_GuiHang);
         noiNhan = findViewById(R.id.chk_noiNhan);
         radioGui_taoDonHang = findViewById(R.id.radioGui_taoDonHang);
@@ -368,10 +369,10 @@ public class TaoDonHang extends AppCompatActivity {
                         Log.d("haii", String.valueOf(idnv));
                     }
 
-                    fireHelper fireHelper = new fireHelper("0", String.valueOf(idnv),hovatennguoinhan);
+                    fireHelper fireHelper = new fireHelper("0", String.valueOf(idnv),hovatennguoinhan,myId.toString());
 //                        đẩy lên firebase
                     reference.child(myId.toString()).child(String.valueOf(idnv)).setValue(fireHelper);
-                    reference1.child("donHang").setValue(String.valueOf(cursor1.getCount()));
+                    reference1.child("donHang").setValue(String.valueOf(cursor1.getCount())+"");
 
                     TaoDonHang.this.onBackPressed();
                     if (val > 0) {

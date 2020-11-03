@@ -4,4 +4,6 @@
         android:id="@+id/menuXoa"></item>
     <item android:title="Sửa"
         android:id="@+id/menuSua"></item>
+    <item android:title="Chi tiết"
+        android:id="@+id/menuChitiet"></item>
 </menu>

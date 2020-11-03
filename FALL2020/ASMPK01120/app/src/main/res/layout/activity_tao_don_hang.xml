@@ -215,7 +215,7 @@
                             app:srcCompat="@drawable/ic_outline_person_pin_24" />
 
                         <EditText
-                            android:id="@+id/edt_hoVaTen"
+                            android:id="@+id/edthovaten"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/img2"
@@ -239,10 +239,10 @@
                             app:srcCompat="@drawable/ic_baseline_local_phone_24" />
 
                         <AutoCompleteTextView
-                            android:id="@+id/edt_SDTNguoiNhan"
+                            android:id="@+id/edttendangnhap"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_hoVaTen"
+                            android:layout_below="@+id/edthovaten"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="50dp"
@@ -263,7 +263,7 @@
                             app:srcCompat="@drawable/ic_outline_not_listed_location_24" />
 
                         <EditText
-                            android:id="@+id/edt_diaChiNguoiNhan"
+                            android:id="@+id/edtmatkhaumoi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinner2"
@@ -281,7 +281,7 @@
                             android:id="@+id/nguoitrartien"
                             android:layout_width="371dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_diaChiNguoiNhan"
+                            android:layout_below="@+id/edtmatkhaumoi"
                             android:layout_marginTop="20dp"
                             android:fontFamily="@font/consola"
                             android:text="Người trả tiền cước gửi hàng"
@@ -339,7 +339,7 @@
                             android:id="@+id/spinner"
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/edt_SDTNguoiNhan"
+                            android:layout_below="@+id/edttendangnhap"
                             android:layout_alignParentStart="true"
                             android:layout_marginStart="50dp"
                             android:layout_marginTop="10dp"

@@ -5,26 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.app.ProgressDialog;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.asmpk01120.adpter.DatabaseHelper;
 import com.example.asmpk01120.service.Broadcast;
 import com.example.asmpk01120.service.MyService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,8 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.sql.Connection;
 
 public class TrangChu extends AppCompatActivity {
 

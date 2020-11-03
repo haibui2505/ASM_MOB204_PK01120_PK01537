@@ -1,4 +1,4 @@
-package com.example.asmpk01120;
+package com.example.asmpk01120.adpter;
 
 import android.content.Intent;
 

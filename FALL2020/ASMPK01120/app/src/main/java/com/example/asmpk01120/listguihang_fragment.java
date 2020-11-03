@@ -2,14 +2,11 @@ package com.example.asmpk01120;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -35,8 +32,11 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.asmpk01120.adpter.DatabaseHelper;
+import com.example.asmpk01120.adpter.GuiHang;
+import com.example.asmpk01120.adpter.GuiHangAdapter;
+import com.example.asmpk01120.adpter.fireHelper;
 import com.example.asmpk01120.service.Broadcast;
-import com.example.asmpk01120.service.MyService;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +44,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.ref.Reference;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -128,6 +127,7 @@ public class listguihang_fragment extends Fragment {
         db = new DatabaseHelper(getActivity(), "new.sqlite", null, 1);
         // Inflate the layout for this fragment
 
+
         lv_guiHang.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
@@ -155,6 +155,11 @@ public class listguihang_fragment extends Fragment {
                             case R.id.menuSua:
                                 DiaLogSua(a, name, phone, adr, money);
                                 break;
+                            case R.id.menuChitiet:
+                                Intent intent = new Intent(getActivity(), chitietdonhang.class);
+                                intent.putExtra("ID", a + "");
+                                startActivity(intent);
+                                break;
                         }
                         return false;
                     }
@@ -170,6 +175,11 @@ public class listguihang_fragment extends Fragment {
                             case R.id.menuXoa:
                                 DialogXoa(a);
                                 break;
+                            case R.id.menuChitiet:
+                                Intent intent = new Intent(getActivity(), chitietdonhang.class);
+                                intent.putExtra("ID", a + "");
+                                startActivity(intent);
+                                break;
                         }
                         return false;
                     }
@@ -181,18 +191,16 @@ public class listguihang_fragment extends Fragment {
                 editor.putString("id", id);
                 editor.commit();
 
-                final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE MaNguoiDung = '" + id + "' ORDER BY Id DESC");
+                final Cursor cursor = db.GetData("SELECT * FROM GuiHang WHERE id = '" + a + "' ORDER BY Id DESC");
                 while (cursor.moveToNext()) {
                     trangThai = cursor.getInt(13);
 
                     if (trangThai == 0) {
                         popupMenu.show();
-                    }else {
+                    } else {
                         popupMenu1.show();
                     }
                 }
-
-
                 return false;
             }
         });
@@ -242,7 +250,6 @@ public class listguihang_fragment extends Fragment {
 
         Cursor cursorCheck = db.GetData("SELECT * FROM GuiHang");
         if (cursorCheck.getCount() == 0) {
-            Log.d("checkguihang", "Right!");
             Fragment fragment = new no_list();
             getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_donhang,
                     fragment).commit();
@@ -289,8 +296,8 @@ public class listguihang_fragment extends Fragment {
                 }
 
                 reference = FirebaseDatabase.getInstance().getReference("tinhTrang");
-                fireHelper fireHelper = new fireHelper(null,null,null);
-                Log.d("hai","" +maNguoiDung+ id);
+                fireHelper fireHelper = new fireHelper(null, null, null,null);
+                Log.d("hai", "" + maNguoiDung + id);
                 reference.child(maNguoiDung).child(String.valueOf(id)).setValue(fireHelper);
 
 
@@ -316,12 +323,12 @@ public class listguihang_fragment extends Fragment {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialogsua);
 
-        final EditText edtname = dialog.findViewById(R.id.edt_hoVaTen);
-        final EditText edtsdt = dialog.findViewById(R.id.edt_SDTNguoiNhan);
-        final EditText addr = dialog.findViewById(R.id.edt_diaChiNguoiNhan);
+        final EditText edtname = dialog.findViewById(R.id.edthovaten);
+        final EditText edtsdt = dialog.findViewById(R.id.edttendangnhap);
+        final EditText addr = dialog.findViewById(R.id.edtmatkhaumoi);
         final EditText money = dialog.findViewById(R.id.edt_giaTriHangHoa);
 
-        Button btnXacNhan = dialog.findViewById(R.id.btn_suaGuiHang);
+        Button btnXacNhan = dialog.findViewById(R.id.btncapnhat);
 
         edtname.setText(ten);
         edtsdt.setText(sdt);

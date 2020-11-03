@@ -1,4 +1,4 @@
-package com.example.asmpk01120;
+package com.example.asmpk01120.adpter;
 
 public class ThongBao {
     private Integer Id;
